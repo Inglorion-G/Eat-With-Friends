@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_reader :password
+  
   validates :username, :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   
@@ -6,7 +8,7 @@ class User < ActiveRecord::Base
   
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
-    user.try()
+    user.try(:is_password?, password) ? user : nil
   end
   
   def self.generate_session_token
@@ -22,9 +24,6 @@ class User < ActiveRecord::Base
   
   def is_password?(plain_text)
     BCrypt::Password.new(self.password_digest).is_password?(plain_text)
-  end
-  
-  def
   end
   
   def reset_session_token

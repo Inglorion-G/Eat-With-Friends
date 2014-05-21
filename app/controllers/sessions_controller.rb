@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     )
     if user
       login(user)
-      redirect_to root_url
+      redirect_to new_session_url
     else
       flash.now[:errors] = ["Invalid email or password"]
       render :new, status: 401
