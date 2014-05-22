@@ -6,7 +6,7 @@ EatFriends.Routers.AppRouter = Backbone.Router.extend({
 	
 	dashboard: function () {
 		//user show view
-	}
+	},
 	
 	_swapView: function (newView) {
 		if (this.currentView) {
