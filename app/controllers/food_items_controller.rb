@@ -52,6 +52,7 @@ class FoodItemsController < ApplicationController
   def search_food()
     search_term = params[:search_term]
     json = NXsession.get_food_items_from_nx(search_term)
+    FoodItem.food_items_from_json(json)
     render json: json
   end
   

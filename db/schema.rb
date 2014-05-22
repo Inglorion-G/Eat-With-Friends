@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522031721) do
+ActiveRecord::Schema.define(version: 20140522174158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,28 @@ ActiveRecord::Schema.define(version: 20140522031721) do
     t.string   "nx_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "search_term_id"
   end
 
   add_index "food_items", ["nx_id"], name: "index_food_items_on_nx_id", unique: true, using: :btree
+  add_index "food_items", ["search_term_id"], name: "index_food_items_on_search_term_id", using: :btree
+
+  create_table "search_terms", force: true do |t|
+    t.string "term", null: false
+  end
+
+  add_index "search_terms", ["term"], name: "index_search_terms_on_term", using: :btree
+
+  create_table "user_food_items", force: true do |t|
+    t.integer  "food_item_id",     null: false
+    t.integer  "user_id",          null: false
+    t.datetime "consumption_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_food_items", ["food_item_id"], name: "index_user_food_items_on_food_item_id", using: :btree
+  add_index "user_food_items", ["user_id"], name: "index_user_food_items_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
