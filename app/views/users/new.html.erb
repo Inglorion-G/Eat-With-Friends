@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<!-- <h1>Sign Up</h1>
 <form action="<%= users_url %>" method="post">
 	<input 
 	  type="hidden" 
@@ -18,4 +18,12 @@
 	</label><br>
 	
 	<input type="submit" value="Sign Up">
-</form>
+</form> -->
+
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+<h1>Create User</h1>
+</div>
+</div>
+
+<%= render "form", :user => @user %>

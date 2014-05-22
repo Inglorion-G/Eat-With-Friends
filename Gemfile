@@ -19,9 +19,13 @@ group :development do
   gem 'binding_of_caller'
 end
 
+gem 'debugger'
+
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
+gem 'jquery-ui-rails'
+gem 'backbone-on-rails'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
