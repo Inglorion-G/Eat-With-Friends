@@ -10,7 +10,7 @@ window.EatFriends.Collections.Users = Backbone.Collection.extend({
 			model.fetch();
 			return model;
 		} else {
-			model = new Trellino.Models.User( {id: id} );
+			model = new EatFriends.Models.User( {id: id} );
 			model.fetch({
 				success: function () { users.add(model) }
 			});
