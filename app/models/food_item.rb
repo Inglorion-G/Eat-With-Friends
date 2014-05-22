@@ -1,7 +1,5 @@
 class FoodItem < ActiveRecord::Base
-  # class method food_items_from_json(json)
-    #  loop through the JSON object and create models, return an array of models
-  # end
+  #  loop through the JSON object and create models, return an array of models
   def self.food_items_from_json(json)
     food_items = []
     
@@ -16,6 +14,8 @@ class FoodItem < ActiveRecord::Base
     end
     
     food_items
-    #new_food_item.save! unless FoodItem.find_by_nx_id(new_food_item.nx_id)
+    # new_food_item.each do |food_item| 
+#       if FoodItem.find_by_nx_id(new_food_item.nx_id)
+#     end
   end
 end
