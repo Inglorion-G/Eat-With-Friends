@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   
   before_validation :ensure_session_token
   
+  has_many :food_items, through: :user_food_items, source: :food_item
+  
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     user.try(:is_password?, password) ? user : nil
