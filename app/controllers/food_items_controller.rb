@@ -2,14 +2,14 @@ require 'addressable/uri'
 
 class NXsession
   
-  nx_app_id = ENV["nx_app_id"]
-  nx_app_key = ENV["nx_app_key"]
-  
   def self.get_food_items_from_nx(food_item)
     parse_json_from_uri(food_item_api_request(food_item))
   end
   
   def self.food_item_api_request(food_item)
+    nx_app_id = ENV["nx_app_id"]
+    nx_app_key = ENV["nx_app_key"]
+    
     Addressable::URI.new(
       scheme: "https",
       host: "api.nutritionix.com",
@@ -26,10 +26,13 @@ class NXsession
   def self.parse_json_from_uri(uri)
     JSON.parse(RestClient.get(uri.to_s))
   end
-  
 end
 
 class FoodItemsController < ApplicationController
+  
+  def index
+    @food_items = FoodItem.all
+  end
   
   def new
     @food_item = FoodItem.new

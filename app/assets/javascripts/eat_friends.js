@@ -21,30 +21,29 @@ Backbone.CompositeView = Backbone.View.extend({
 		if (subview.attachSubviews) {
 			subview.attachSubviews();
 		}
-		
 	},
 	
 	attachSubviews: function () {
 		var view = this;
 		_(this.subviews()).each(function (subviews, selector) {
 			view.$(selector).empty();
-			if (view.compareBy) {
-				subviews.sort(view.compareBy);
-			}
+			// if (view.compareBy) {
+// 				subviews.sort(view.compareBy);
+// 			}
 			_(subviews).each(function (subview) {
 				view.attachSubview(selector, subview);
 			});
 		});
 	},
 	
-	compareBy: function(subview1, subview2) {
-		var result = subview1.model.get('rank') - subview2.model.get('rank');
-		if (result === 0) {
-			return -1;
-		} else {
-			return result;
-		}
-	},
+	// compareBy: function(subview1, subview2) {
+// 		var result = subview1.model.get('rank') - subview2.model.get('rank');
+// 		if (result === 0) {
+// 			return -1;
+// 		} else {
+// 			return result;
+// 		}
+// 	},
 	
 	remove: function () {
 		Backbone.View.prototype.remove.call(this);
