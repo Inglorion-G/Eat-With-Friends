@@ -1,0 +1,21 @@
+<div class="row">
+  <h1>Daily Summary for <%= user.escape('username') %></h1>
+	  <div class="col-xs-8">
+			<h4>Search Foods</h4>
+			<div class="input-group" id="search-food-by-name">
+				<input type="text" id="food-search-term" class="form-control">
+			</div>
+			<br>
+			<div class="input-group">
+			  <input type="submit" id="submit-food-search" class="btn btn-primary" value="Add Food">
+			</div>
+			<br>
+			<div>
+				<ul id="food-search-results">
+				</ul>
+			</div>
+		</div>
+		<div class="col-xs-4">
+			<p>Sidebar stuff goes here</p>
+		</div>
+</div>

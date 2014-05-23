@@ -1,6 +1,7 @@
-window.EatFriends.Collections.Users = Backbone.Collection.extend({
-	model: EatFriends.Models.User,
-	url: "api/users",
+window.EatFriends.Collections.FoodItems = Backbone.Collection.extend({
+	model: EatFriends.Models.FoodItem,
+	
+	url: "api/food_items",
 	
 	getOrFetch: function (id) {
 		var model;
@@ -17,5 +18,4 @@ window.EatFriends.Collections.Users = Backbone.Collection.extend({
 			return model;
 		}
 	},
-	
 });

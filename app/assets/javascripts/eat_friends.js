@@ -4,7 +4,10 @@ window.EatFriends = {
   Views: {},
   Routers: {},
   initialize: function() {
-    //alert('Hello from Backbone!');
+		EatFriends.Collections.users = new EatFriends.Collections.Users();
+		
+    new EatFriends.Routers.AppRouter();
+		Backbone.history.start();
   }
 };
 
@@ -27,9 +30,7 @@ Backbone.CompositeView = Backbone.View.extend({
 		var view = this;
 		_(this.subviews()).each(function (subviews, selector) {
 			view.$(selector).empty();
-			// if (view.compareBy) {
-// 				subviews.sort(view.compareBy);
-// 			}
+			
 			_(subviews).each(function (subview) {
 				view.attachSubview(selector, subview);
 			});
