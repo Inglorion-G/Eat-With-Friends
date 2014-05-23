@@ -22,16 +22,23 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	foodSearchRequest: function (event) {
 		event.preventDefault();
 		var searchTerm = $("#food-search-term").val();
-		var url = "food_items/search_food?search_term=" + searchTerm
+		var url = "food_items/search_food?search_term=" + searchTerm;
+		var that = this;
 		$.ajax({
 			type: "GET",
 			url: url,
-			success: console.log(url)
+			success: function(response) {
+				that.handleFoodSearchResults(response)
+			}
 		});
 	},
 	
 	handleFoodSearchResults: function (foods) {
-		$("#food-search-results").html(foods)
+		_.each(foods, function (food) {
+			$("#food-search-results")
+			.append("<li>" + food.item_name + " -- Calories: " + food.calories + "</li>")
+		});
+		
 	},
 	
 });
