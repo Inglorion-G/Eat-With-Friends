@@ -22,7 +22,8 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	foodSearchRequest: function (event) {
 		event.preventDefault();
 		var searchTerm = $("#food-search-term").val();
-		var url = "food_items/search_food?search_term=" + searchTerm;
+		var url = "food_items/search_food?search_term=" + searchTerm.toLowerCase();
+		console.log(url)
 		var that = this;
 		$.ajax({
 			type: "GET",
