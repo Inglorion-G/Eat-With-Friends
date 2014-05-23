@@ -30,6 +30,7 @@ window.EatFriends.Views.FoodItemsIndex = Backbone.View.extend({
 	},
 	
 	handleFoodSearchResults: function (foods) {
+		$("#food-search-results").html("")
 		_.each(foods, function (food) {
 			$("#food-search-results")
 			.append("<li>" + food.item_name + " -- Calories: " + food.calories + "</li>")

@@ -27,8 +27,20 @@ class Api::FoodItemsController < ApplicationController
   
   def search_food
     search_term = params[:search_term]
-    json = FoodItem.get_or_fetch(search_term)
-    render json: json
+    #db_search_term = SearchTerm.where(term: search_term)
+    term = SearchTerm.find_by(:term => search_term)
+    
+    if term
+      food_items_list = term.food_items
+    else
+      term = SearchTerm.create(:term => search_term)
+      food_items_list = term.get_or_fetch_food_items
+    end
+
+    render json: food_items_list
+
+    # json = FoodItem.get_or_fetch(search_term)
+#     render json: json
   end
   
   private
