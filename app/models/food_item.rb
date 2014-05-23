@@ -33,9 +33,6 @@ class FoodItem < ActiveRecord::Base
     end
     
     food_items
-    # new_food_item.each do |food_item| 
-#       if FoodItem.find_by_nx_id(new_food_item.nx_id)
-#     end
   end
   
   def self.save_food_items(food_items_json, search_term_id)
