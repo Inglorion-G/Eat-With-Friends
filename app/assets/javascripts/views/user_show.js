@@ -39,7 +39,6 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 			$("#food-search-results")
 			.append("<li>" + food.item_name + " -- Calories: " + food.calories + "</li>")
 		});
-		
 	},
 	
 });

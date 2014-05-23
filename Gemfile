@@ -10,6 +10,7 @@ gem 'addressable'
 gem 'figaro'
 gem 'rails_12factor'
 gem 'rest-client'
+gem 'gravatar_image_tag'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 gem 'jquery-rails'

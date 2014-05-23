@@ -14,3 +14,40 @@
  *= require_self
  */
 @import "bootstrap";
+
+/*.inactive {
+	display: none;
+}*/
+
+ul {
+	list-style-type: none;
+}
+
+.status-column {
+	margin: 10px;
+	padding: 10px;
+}
+
+.add-food {
+  float: left;
+}
+
+#calories-progress {
+	position: relative;
+	top: 90px;
+	left: -20px;
+}
+
+.daily-summary-body {
+	padding: 10px;
+}
+
+.total-calories {
+	font-weight: bold;
+	font-size: 45px;
+	line-height: 40px;
+	color: #3eb24f;
+	letter-spacing: -1px;
+	margin: 0 0 0 20px;
+	float: left;
+}
