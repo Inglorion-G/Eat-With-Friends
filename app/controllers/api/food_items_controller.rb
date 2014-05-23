@@ -1,7 +1,7 @@
 class Api::FoodItemsController < ApplicationController
   
   def index
-    @food_items = FoodItem.all
+    @food_items = FoodItem.with_query(params)
     render json: @food_items
   end
   
@@ -30,6 +30,7 @@ class Api::FoodItemsController < ApplicationController
     #db_search_term = SearchTerm.where(term: search_term)
     term = SearchTerm.find_by(:term => search_term)
     
+    # move all this to the model
     if term
       food_items_list = term.food_items
     else
@@ -38,9 +39,6 @@ class Api::FoodItemsController < ApplicationController
     end
 
     render json: food_items_list
-
-    # json = FoodItem.get_or_fetch(search_term)
-#     render json: json
   end
   
   private

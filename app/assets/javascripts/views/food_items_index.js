@@ -1,4 +1,4 @@
-window.EatFriends.Views.FoodItemsIndex = Backbone.View.extend({
+window.EatFriends.Views.FoodItemsIndex = Backbone.CompositeView.extend({
 	template: JST["food_items/index"],
 	
 	render: function () {
@@ -17,24 +17,26 @@ window.EatFriends.Views.FoodItemsIndex = Backbone.View.extend({
 	foodSearchRequest: function (event) {
 		event.preventDefault();
 		var searchTerm = $("#food-search-term").val();
-		var url = "food_items/search_food?search_term=" + searchTerm.toLowerCase();
-		console.log(url)
 		var that = this;
-		$.ajax({
-			type: "GET",
-			url: url,
-			success: function(response) {
-				that.handleFoodSearchResults(response)
+		this.collection.fetch({ 
+			data: { search_term: searchTerm },
+			success: function () {
+				var foods = that.collection.models
+				console.log(foods)
+				that.handleFoodSearchResults(foods)
 			}
-		});
+		})
 	},
 	
 	handleFoodSearchResults: function (foods) {
+		var that = this;
 		$("#food-search-results").html("")
 		_.each(foods, function (food) {
-			$("#food-search-results")
-			.append("<li>" + food.item_name + " -- Calories: " + food.calories + "</li>")
-		});
+			var foodShowView = new EatFriends.Views.FoodItemShow({
+				model: food
+		  })
+			that.addSubview("#food-search-results", foodShowView);
+			foodShowView.render()
+		})
 	},
-	
 });

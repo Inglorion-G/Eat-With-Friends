@@ -7,6 +7,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	},
 	
 	events: {
+		"click #home":"switchTabs",
 		"click .add-food":"foodSearchPage",
 	},
 	
@@ -17,6 +18,11 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		
 		this.$el.html(content);
 		return this;
+	},
+	
+	switchTabs: function(event) {
+		event.preventDefault();
+		$(event.currentTarget).tab('show');
 	},
 	
 	foodSearchPage: function (event) {

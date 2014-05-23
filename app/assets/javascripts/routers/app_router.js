@@ -19,6 +19,7 @@ EatFriends.Routers.AppRouter = Backbone.Router.extend({
 			collection: EatFriends.Collections.users
 		})
 		EatFriends.Collections.users.fetch();
+		EatFriends.Collections.food_items.fetch();
 		
 		this._swapView(usersIndexView)
 	},

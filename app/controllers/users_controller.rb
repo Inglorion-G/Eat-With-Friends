@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    # use include to grab all the user food items 
     @user = current_user
     render partial: "api/users/user", locals: { user: @user}
   end

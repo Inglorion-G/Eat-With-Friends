@@ -11,16 +11,20 @@
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
-        <h4 class="navbar-brand">Eat With Friends</h4>
+        <a class="navbar-brand">Eat With Friends</a>
 			</div>
+			
+			<ul class="nav navbar-nav nav-pills">
+				<li><a href="#">My Home</a></li>
+			</ul>
 
       <% if logged_in? %>
         <div class="dropdown pull-right navbar-form">
-          <button class="btn btn-primary dropdown-toggle user-drop-down"   type="button" data-toggle="dropdown">
+          <button type="button" class="btn btn-primary dropdown-toggle user-drop-down" data-toggle="dropdown">
             <%= current_user.username %>
             <span class="caret"></span>
           </button>
-          <ul class="nav navbar-nav navbar-right dropdown-menu">
+          <ul class="dropdown-menu">
             <li><%= link_to "Sign Out", session_url,
                      :method => :delete%></li>
           </ul>
