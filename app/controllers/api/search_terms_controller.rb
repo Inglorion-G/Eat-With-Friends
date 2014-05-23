@@ -1,4 +1,4 @@
-class SearchTermsController < ApplicationController
+class Api::SearchTermsController < ApplicationController
   def new
     @search_term = SearchTerm.new
   end

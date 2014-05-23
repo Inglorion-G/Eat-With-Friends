@@ -1,4 +1,4 @@
-class FoodItemsController < ApplicationController
+class Api::FoodItemsController < ApplicationController
   
   def index
     @food_items = FoodItem.all
@@ -29,6 +29,7 @@ class FoodItemsController < ApplicationController
     search_term = params[:search_term]
     json = FoodItem.get_or_fetch(search_term)
     render json: json
+    # this should correctly render the models as json
   end
   
   private

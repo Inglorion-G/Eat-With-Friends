@@ -1,7 +1,8 @@
 <div class="row">
   <div class="status-column col-xs-7 col-xs-offset-1">
 		<div class="panel panel-primary daily-summary">
-		<div class="panel-heading">Daily Summary for <%= user.escape('username') %>
+		<div class="panel-heading">
+			<h4>Daily Summary for <%= user.escape('username') %></h4>
 		</div>
 			<div class="panel-body daily-summary-body">
 				<div class="profile-picture" style="width:120px;height:120px;background-color:#ffcc00;float:left">
@@ -24,6 +25,21 @@
 
 			</div>	
 		</div>
+		
+		<div class="panel panel-primary news-feed">
+			<div class="panel-heading">News Feed
+			</div>
+			<div class="panel-body news-feed-body">
+				<div class="input-group comment-text-field">
+				  <textarea class="form-control">Share something!
+					</textarea>
+				</div>
+				<div class="input-group submit-comment">
+				  <input type="submit" class="button btn-default form-control pull-right">
+				</div>	
+			</div>
+		</div>
+		
   </div>
 </div>
 

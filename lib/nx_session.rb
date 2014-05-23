@@ -23,6 +23,14 @@ class NXSession
   end
 
   def self.parse_json_from_uri(uri)
-    JSON.parse(RestClient.get(uri.to_s))
+    hashes = JSON.parse(RestClient.get(uri.to_s))
+    hashes['hits'].map do |hash|
+      data = hash['fields']
+      {
+        :calories => data["nf_calories"],
+        :item_name => data["item_name"],
+        :nx_id => data["item_id"]
+      }
+    end
   end
 end
