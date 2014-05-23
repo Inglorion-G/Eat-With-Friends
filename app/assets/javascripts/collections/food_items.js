@@ -11,9 +11,9 @@ window.EatFriends.Collections.FoodItems = Backbone.Collection.extend({
 			model.fetch();
 			return model;
 		} else {
-			model = new EatFriends.Models.User( {id: id} );
+			model = new EatFriends.Models.FoodItem( {id: id} );
 			model.fetch({
-				success: function () { users.add(model) }
+				success: function () { food_items.add(model) }
 			});
 			return model;
 		}

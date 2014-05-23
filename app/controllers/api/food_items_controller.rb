@@ -29,7 +29,6 @@ class Api::FoodItemsController < ApplicationController
     search_term = params[:search_term]
     json = FoodItem.get_or_fetch(search_term)
     render json: json
-    # this should correctly render the models as json
   end
   
   private

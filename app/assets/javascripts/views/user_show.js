@@ -7,7 +7,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		"click #submit-food-search":"foodSearchRequest",
+		"click .add-food":"foodSearchPage",
 	},
 	
 	render: function () {
@@ -19,26 +19,9 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		return this;
 	},
 	
-	foodSearchRequest: function (event) {
+	foodSearchPage: function (event) {
 		event.preventDefault();
-		var searchTerm = $("#food-search-term").val();
-		var url = "food_items/search_food?search_term=" + searchTerm.toLowerCase();
-		console.log(url)
-		var that = this;
-		$.ajax({
-			type: "GET",
-			url: url,
-			success: function(response) {
-				that.handleFoodSearchResults(response)
-			}
-		});
-	},
-	
-	handleFoodSearchResults: function (foods) {
-		_.each(foods, function (food) {
-			$("#food-search-results")
-			.append("<li>" + food.item_name + " -- Calories: " + food.calories + "</li>")
-		});
-	},
+		Backbone.history.navigate("#/food_items/index")
+	}
 	
 });

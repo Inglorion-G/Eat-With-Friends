@@ -2,6 +2,7 @@ EatFriends.Routers.AppRouter = Backbone.Router.extend({
 	
 	routes: {
 		"":"dashboard",
+		"food_items/index":"searchFoods"
 	},
 	
 	dashboard: function (id) {
@@ -20,6 +21,15 @@ EatFriends.Routers.AppRouter = Backbone.Router.extend({
 		EatFriends.Collections.users.fetch();
 		
 		this._swapView(usersIndexView)
+	},
+	
+	searchFoods: function () {
+		var foodItemsIndexView = new EatFriends.Views.FoodItemsIndex({
+			collection: EatFriends.Collections.food_items
+		})
+		EatFriends.Collections.food_items.fetch();
+		
+		this._swapView(foodItemsIndexView)
 	},
 	
 	_swapView: function (newView) {

@@ -8,6 +8,6 @@ window.EatFriends.Views.FoodItemShow = Backbone.CompositeView.extend({
 		
 		this.$el.html(content);
 		return this;
-	},
+	}
 	
 });

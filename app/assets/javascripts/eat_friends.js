@@ -5,6 +5,7 @@ window.EatFriends = {
   Routers: {},
   initialize: function() {
 		EatFriends.Collections.users = new EatFriends.Collections.Users();
+		EatFriends.Collections.food_items = new EatFriends.Collections.FoodItems();
 		
     new EatFriends.Routers.AppRouter();
 		Backbone.history.start();
