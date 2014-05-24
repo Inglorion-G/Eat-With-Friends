@@ -1,4 +1,4 @@
 <div class="well well-sm user-food-item">
-	<p>Food ID: <%= user_food_item.escape('food_item_id') %></p>
-	<p>User ID: <%= user_food_item.escape('user_id') %></p>
+	<p>Food: <%= user_food_item.foodItem().escape('item_name') %></p>
+	<p>Calories: <%= user_food_item.foodItem().escape('calories') %></p>
 </div>

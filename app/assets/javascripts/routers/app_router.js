@@ -27,7 +27,7 @@ EatFriends.Routers.AppRouter = Backbone.Router.extend({
 	
 	searchFoods: function () {
 		var foodItemsIndexView = new EatFriends.Views.FoodItemsIndex({
-			collection: EatFriends.Collections.food_items
+			collection: new EatFriends.Collections.FoodItems()
 		})
 		EatFriends.Collections.food_items.fetch();
 		

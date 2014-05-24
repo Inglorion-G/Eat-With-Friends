@@ -7,7 +7,8 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 			var that = this;
 			
 			_(user_food_items).each(function (user_food_data) {
-				var user_food_item = new EatFriends.Models.UserFoodItem(user_food_data);
+				var user_food_item = 
+				  new EatFriends.Models.UserFoodItem(user_food_data, {parse: true});
 				
 				that.user_food_items().add(user_food_item);
 			});
