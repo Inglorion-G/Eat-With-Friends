@@ -14,6 +14,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	events: {
 		"click a[data-toggle='tab']":"switchTabs",
 		"click .add-food":"foodSearchPage",
+		"click .submit-comment":"caloriesSum"
 	},
 	
 	addUserFood: function(food_item) {
@@ -54,7 +55,5 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		event.preventDefault();
 		Backbone.history.navigate("#/food_items/index")
 	},
-	
-	
 	
 });

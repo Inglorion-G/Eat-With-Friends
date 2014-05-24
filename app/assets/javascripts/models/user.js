@@ -23,6 +23,14 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 		this._user_food_items = this._user_food_items ||
 		new EatFriends.Collections.UserFoodItems([], { user: this });
 		return this._user_food_items;
-	}
+	},
+	
+	caloriesSum: function() {
+		var totalCalories = 0;
+		this.user_food_items().each( function(user_food_item) {
+			totalCalories += user_food_item.foodItem().get('calories')
+		});
+		return (parseInt(totalCalories));
+	},
 	
 });
