@@ -1,7 +1,11 @@
 <div id="content" class="container">
 </div>
 <script>
-	var currentUserID = <%= current_user.id || nil %>;
+  <% if current_user  %>
+	  var currentUserID = <%= current_user.id %>;
+	<% else %>
+	  var currentUserID = null
+	<% end %>
   $(function () {
     // put stuff here
   });
