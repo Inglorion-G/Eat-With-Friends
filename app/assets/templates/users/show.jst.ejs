@@ -1,4 +1,4 @@
-<ul class="nav nav-tabs">
+<!-- <ul class="nav nav-tabs">
   <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
   <li><a href="#food" data-toggle="tab">Food</a></li>
   <li><a href="#exercise" data-toggle="tab">Exercise</a></li>
@@ -61,8 +61,7 @@
 					</div>
 					
 					<div class="panel-body food-diary-body">
-						<p>User foods go here!</p>
-						<p><%= user.user_food_items() %></p>
+						<p>You haven't eaten anything today!</p>
 					</div>
 				</div>
 			</div>
@@ -70,10 +69,22 @@
 	
 		<div class="tab-pane" id="exercise">
 			<h3>Exercise</h3>
+			<p>Are you kidding? Burn all those precious calories that you EARNED?</p>
 		</div>
 	
 		<div class="tab-pane" id="reports">
 			<h3>Reports</h3>
 		</div>
 	</div>
+</div> -->
+
+<div class="user-home-page">
+	<%= JST['users/show/nav']({ user: user }) %>
+	
+	<div class="row">
+		<div class="status-column col-xs-7 col-xs-offset-1">
+		  <%= JST['users/show/main']({ user: user })%>
+		</div>
+	</div>
+	
 </div>

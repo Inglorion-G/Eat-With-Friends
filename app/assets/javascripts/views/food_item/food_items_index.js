@@ -23,6 +23,7 @@ window.EatFriends.Views.FoodItemsIndex = Backbone.CompositeView.extend({
 			success: function () {
 				var foods = that.collection.models
 				console.log(foods)
+				debugger
 				that.handleFoodSearchResults(foods)
 			}
 		})

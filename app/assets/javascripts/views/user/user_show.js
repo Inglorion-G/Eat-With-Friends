@@ -4,30 +4,22 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	
 	initialize: function () {
 		this.listenTo(this.model, "sync", this.render);
-		//this.listenTo(this.model.user_food_items(), "sync", this.render);
+		this.listenTo(this.model.user_food_items(), "sync", this.render);
 		this.listenTo(this.model.user_food_items(), "add", this.addUserFood);
 		this.listenTo(this.model.user_food_items(), "remove", this.removeUserFood);
 		
 		this.model.user_food_items().each(this.addUserFood.bind(this));
-		//this.getFoodItems()
-		// _(this.model.user_food_items()).each( function (food_item) {
-// 			food_item.foodItem(addUserFood);
-// 		}); 
 	},
 	
 	events: {
-		"click #home":"switchTabs",
+		"click a[data-toggle='tab']":"switchTabs",
 		"click .add-food":"foodSearchPage",
 	},
 	
-	getFoodItems: function() {
-		this.model.user_food_items().each(alert("bacon"))
-	},
-	
 	addUserFood: function(food_item) {
-		var user_food_item = food_item.foodItem();
-		var userFoodView = new EatFriends.Views.FoodItemShow({
-			model: user_food_item
+		var userFoodView = new EatFriends.Views.UserFoodItemShow({
+			user: this.model,
+			model: food_item
 		});
 		
 		this.addSubview(".food-diary-body", userFoodView);
