@@ -1,25 +1,4 @@
-<!-- <h1>Sign Up</h1>
-<form action="<%= users_url %>" method="post">
-	<input 
-	  type="hidden" 
-		name="authenticity_token" 
-		value="<%= form_authenticity_token %>">
-	
-	<label>Username<br>
-	  <input type="text" name="user[username]">
-  </label><br>
-	
-	<label>Email<br>
-		<input type="text" name="user[email]">
-	</label><br>
-	
-	<label>Password<br>
-		<input type="text" name="user[password]">
-	</label><br>
-	
-	<input type="submit" value="Sign Up">
-</form> -->
-
+<body class="sign-up">
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
 <h1>Create User</h1>
@@ -27,3 +6,4 @@
 </div>
 
 <%= render "form", :user => @user %>
+</body>
