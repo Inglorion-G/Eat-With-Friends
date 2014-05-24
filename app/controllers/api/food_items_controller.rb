@@ -1,4 +1,4 @@
-class Api::FoodItemsController < ApplicationController
+class Api::FoodItemsController < Api::ApiController
   
   def index
     @food_items = FoodItem.with_query(params)

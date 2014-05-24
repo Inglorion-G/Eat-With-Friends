@@ -8,7 +8,7 @@ window.EatFriends.Views.UserFoodItemShow = Backbone.CompositeView.extend({
 	template: JST["user_food_items/show"],
 	
 	events: {
-		"click .remove-food-button": "remove"
+		"click .remove-food-button": "destroyFoodItem"
 	},
 	
 	render: function () {
@@ -20,4 +20,8 @@ window.EatFriends.Views.UserFoodItemShow = Backbone.CompositeView.extend({
 		return this;
 	},
 	
+	destroyFoodItem: function (event) {
+		event.preventDefault();
+		this.model.destroy();
+	},
 });

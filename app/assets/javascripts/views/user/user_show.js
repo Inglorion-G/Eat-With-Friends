@@ -34,6 +34,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		});
 		
 		this.removeSubview(".food-diary-body", userFoodView);
+		//this.render();
 	},
 	
 	render: function () {

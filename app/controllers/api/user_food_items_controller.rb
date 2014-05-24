@@ -1,4 +1,4 @@
-class Api::UserFoodItemsController < ApplicationController
+class Api::UserFoodItemsController < Api::ApiController
   
   def index
     @user_food_items = UserFoodItem.all

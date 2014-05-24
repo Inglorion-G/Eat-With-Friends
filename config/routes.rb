@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :users, except: [:create, :new, :edit] do
       resources :user_food_items, only: [:new, :destroy, :index, :show]
     end
-    resources :user_food_items, only: [:create]
+    resources :user_food_items, only: [:create, :destroy]
     resources :food_items, only: [:create, :search_food, :index, :show]
   end
   
