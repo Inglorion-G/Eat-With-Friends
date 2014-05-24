@@ -16,6 +16,7 @@ class Api::UserFoodItemsController < ApplicationController
   
   def create
     @user_food_item = UserFoodItem.new(food_params)
+    @user_food_item.user_id = current_user.id
     
     if @user_food_item.save
       redirect_to :back

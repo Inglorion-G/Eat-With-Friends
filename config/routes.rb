@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
     resources :users, except: [:create, :new, :edit] do
-      resources :user_food_items, only: [:new, :create, :destroy]
+      resources :user_food_items, only: [:new, :destroy, :index, :show]
     end
-    resources :food_items, only: [:new, :create, :search_food, :index]
+    resources :user_food_items, only: [:create]
+    resources :food_items, only: [:create, :search_food, :index, :show]
   end
   
   resources :users, only: [:new, :create]

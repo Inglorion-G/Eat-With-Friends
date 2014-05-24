@@ -5,7 +5,7 @@ window.EatFriends.Collections.FoodItems = Backbone.Collection.extend({
 	
 	getOrFetch: function (id) {
 		var model;
-		var users = this;
+		var food_items = this;
 		
 		if (model = this.get(id)) {
 			model.fetch();
