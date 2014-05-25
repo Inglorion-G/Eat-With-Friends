@@ -15,7 +15,7 @@ class NXSession
       path: "v1_1/search/#{food_item}",
       query_values: {
         results: "0:20",
-        fields: "brand_name,item_name,item_id,nf_calories",
+        fields: "brand_name,item_name,item_id,nf_calories,nf_total_fat,nf_total_carbohydrate,nf_protein",
         appId: nx_app_id,
         appKey: nx_app_key
       }
@@ -29,7 +29,10 @@ class NXSession
       {
         :calories => data["nf_calories"],
         :item_name => data["item_name"],
-        :nx_id => data["item_id"]
+        :nx_id => data["item_id"],
+        :total_fat => data["nf_total_fat"],
+        :total_carbs => data["nf_total_carbohydrate"],
+        :total_protein => data["nf_protein"]
       }
     end
   end

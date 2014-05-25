@@ -25,6 +25,30 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 		return this._user_food_items;
 	},
 	
+	totalFat: function() {
+		var totalFat = 0;
+		this.user_food_items().each( function(user_food_item) {
+			totalFat += user_food_item.foodItem().get('total_fat')
+		});
+		return (parseInt(totalFat));
+	},
+	
+	totalCarbs: function() {
+		var totalCarbs = 0;
+		this.user_food_items().each( function(user_food_item) {
+			totalCarbs += user_food_item.foodItem().get('total_carbs')
+		});
+		return (parseInt(totalCarbs));
+	},
+	
+	totalProtein: function() {
+		var totalProtein = 0;
+		this.user_food_items().each( function(user_food_item) {
+			totalProtein += user_food_item.foodItem().get('total_protein')
+		});
+		return (parseInt(totalProtein));
+	},
+	
 	caloriesSum: function() {
 		var totalCalories = 0;
 		this.user_food_items().each( function(user_food_item) {

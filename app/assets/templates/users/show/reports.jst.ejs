@@ -1,15 +1,19 @@
 <div class="tab-pane fade in" id="reports"> 
    <script type="text/javascript">
-
+	 debugger
+	 var totalCarbs = user.totalCarbs();
+	 var totalFat = user.totalFat();
+	 var totalProtein = user.totalProtein();
+	 
 		var w = 300,                       
 		h = 300,                           
 		r = 100,                            
 		color = d3.scale.ordinal().range(["#2F7689", "#FF4444", 
 						"#99CC00"]);   
 
-		data = [{"label":"Protein", "value":20}, 
-		        {"label":"Fat", "value":50}, 
-		        {"label":"Carbs", "value":30}];
+		data = [{"label":"Protein", "value": totalProtein}, 
+		        {"label":"Fat", "value": totalFat}, 
+		        {"label":"Carbs", "value": totalCarbs}];
 
 		var vis = d3.select(".pie-chart")
 		    .append("svg:svg")              
