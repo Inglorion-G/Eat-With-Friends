@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :user_food_items
   has_many :food_items, through: :user_food_items, source: :food_item
   
+  has_many :friendships
+  has_many :friends, through: :friendships, source: :friend
+  
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     user.try(:is_password?, password) ? user : nil
