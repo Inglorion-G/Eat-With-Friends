@@ -14,6 +14,7 @@
  *= require_self
  */
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Gorditas);
 
 /*.inactive {
 	display: none;
@@ -39,6 +40,16 @@
 
 ul {
 	list-style-type: none;
+}
+
+.navbar-brand {
+  font-family: 'Gorditas', cursive;
+	font-weight: bold;
+	font-size: 25px;
+	line-height: 20px;
+	color: #3eb24f;
+	letter-spacing: -1px;
+	size: 150%;
 }
 
 .status-column {
@@ -96,3 +107,8 @@ ul {
 	margin: 0 0 0 20px;
 	float: left;
 }
+
+.slice text {
+ font-size: 12pt;
+ font-family: Arial;
+}   
