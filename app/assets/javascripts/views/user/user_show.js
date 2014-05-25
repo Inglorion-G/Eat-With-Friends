@@ -9,6 +9,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.user_food_items(), "remove", this.removeUserFood);
 		
 		this.model.user_food_items().each(this.addUserFood.bind(this));
+		//this.addUserReports()
 	},
 	
 	events: {
@@ -27,14 +28,25 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		userFoodView.render()
 	},
 	
-	addUserReports: function() {
-		var userReportView = new EatFriends.Views.ReportShow({
-			user: this.model,
-		});
-		
-		this.addSubview(".pie-chart", userReportView)
-		userReportView.render()
-	},
+	// addUserReports: function() {
+// 		//var pieData = [carbs, fat, protein]
+// 		var userReportView = new EatFriends.Views.ReportShow({
+// 			el: '.pie-chart',
+// 			data: [{"label":"Protein", "value": 5 },//this.model.totalProtein()}, 
+// 		        {"label":"Fat", "value": 5 },//this.model.totalFat()}, 
+// 		        {"label":"Carbs", "value": 5 }],//this.model.totalCarbs()}],
+// 		  base_height: 220,
+// 		  breakpoints: {
+// 		    728: 0.9,
+// 		    420: 0.7,
+// 		    380: 0.65
+// 		  }
+// 		});
+// 		$(".pie-chart").html("")
+// 		debugger
+// 		$(".pie-chart").html(userReportView.render())
+// 		this.render()
+// 	},
 	
 	removeUserFood: function(food_item) {
 		var userFoodView = 

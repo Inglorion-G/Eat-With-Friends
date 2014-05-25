@@ -4,6 +4,7 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 	parse: function (payload) {
 		if (payload.user_food_items) {
 			var user_food_items = payload.user_food_items;
+			var friendships = payload.friendships;
 			var that = this;
 			
 			_(user_food_items).each(function (user_food_data) {
@@ -12,8 +13,16 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 				
 				that.user_food_items().add(user_food_item);
 			});
+			
+			_(friendships).each(function (friendship_data) {
+				var friendship = 
+				  new EatFriends.Models.Friendship(friendship_data, {parse: true});
+					
+				that.friendships().add(friendship);
+			});
 	
 			delete payload.user_food_items;
+			delete payload.friendships;
 		}
 		
 		return payload;
@@ -22,8 +31,18 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 	user_food_items: function () {
 		this._user_food_items = this._user_food_items ||
 		new EatFriends.Collections.UserFoodItems([], { user: this });
+		
 		return this._user_food_items;
 	},
+	
+	friendships: function () {
+		this._friendships = this._friendships ||
+		new EatFriends.Collections.Friendships([], { user: this });
+		
+		return this._friendships;
+	},
+	
+	// user methods for returning daily nutritional values
 	
 	totalFat: function() {
 		var totalFat = 0;

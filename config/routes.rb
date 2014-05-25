@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, except: [:create, :new, :edit] do
       resources :user_food_items, only: [:new, :destroy, :index, :show]
+      resources :friendships, only: [:index]
     end
     resources :user_food_items, only: [:create, :destroy]
     resources :food_items, only: [:create, :search_food, :index, :show]
+    resources :friendships, only: [:create, :destroy]
   end
   
   resources :users, only: [:new, :create]

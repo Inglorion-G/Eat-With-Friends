@@ -1,15 +1,10 @@
-window.EatFriends.Views.ReportShow = Backbone.CompositeView.extend({
+window.EatFriends.Views.ReportShow = Backbone.ChartView.extend({
 	template: JST["users/show/reports"],
 	
-	initialize: function (options) {
-		this.user = options.user
-	},
-	
-	renderPieChart: function () {
-	
-	 var totalCarbs = this.user.totalCarbs();
-	 var totalFat = this.user.totalFat();
-	 var totalProtein = this.user.totalProtein();
+	draw: function () {
+	 // var totalCarbs = this.user.totalCarbs();
+ // 	 var totalFat = this.user.totalFat();
+ // 	 var totalProtein = this.user.totalProtein();
 	 
 		var w = 300,                       
 		h = 300,                           
@@ -17,9 +12,11 @@ window.EatFriends.Views.ReportShow = Backbone.CompositeView.extend({
 		color = d3.scale.ordinal().range(["#2F7689", "#FF4444", 
 						"#99CC00"]);   
 
-		data = [{"label":"Protein", "value": totalProtein}, 
-		        {"label":"Fat", "value": totalFat}, 
-		        {"label":"Carbs", "value": totalCarbs}];
+		// data = [{"label":"Protein", "value": 5}, 
+// 		        {"label":"Fat", "value": 5}, 
+// 		        {"label":"Carbs", "value": 5}];
+
+    data = this.data
 
 		var vis = d3.select(".pie-chart")
 		    .append("svg:svg")              
@@ -68,12 +65,12 @@ window.EatFriends.Views.ReportShow = Backbone.CompositeView.extend({
 		        .text(function(d, i) { return data[i].label; });
   },
 	
-	render: function () {
-		alert("in render")
-		var content = this.renderPieChart();
-		
-		this.$el.html(content);
-		return this;
-	}
+	// render: function () {
+// 		alert("in render")
+// 		var content = this.renderPieChart();
+// 		
+// 		this.$el.html(content);
+// 		return this;
+// 	}
 	
 });
