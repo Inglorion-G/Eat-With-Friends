@@ -27,6 +27,15 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		userFoodView.render()
 	},
 	
+	addUserReports: function() {
+		var userReportView = new EatFriends.Views.ReportShow({
+			user: this.model,
+		});
+		
+		this.addSubview(".pie-chart", userReportView)
+		userReportView.render()
+	},
+	
 	removeUserFood: function(food_item) {
 		var userFoodView = 
 		_(this.subviews()[".food-diary-body"]).find(function (subview) {
