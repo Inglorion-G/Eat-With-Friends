@@ -1,12 +1,17 @@
 <h4>Search Foods</h4>
 
-<div class="input-group" id="search-food-by-name">
-  <input type="text" id="food-search-term" class="form-control">
-</div>
+<form role="form" id="search-foods">
+	
+	<div class="form-group" id="search-food-by-name">
+		<label for="search-food-term">Enter Food</label>
+	  <input type="text" id="food-search-term" class="form-control" placeholder="What'd you eat?">
+	</div>
 
-<div class="input-group">
-  <input type="submit" id="submit-food-search" class="btn btn-primary" value="Search for Food">
-</div>
+	<div class="form-group">
+	  <input type="submit" id="submit-food-search" class="btn btn-primary" value="Search for Food">
+	</div>
+	
+</form>
 
 <div class="row">
 	<div id="food-search-panel" class="inactive col-xs-6 panel panel-default">

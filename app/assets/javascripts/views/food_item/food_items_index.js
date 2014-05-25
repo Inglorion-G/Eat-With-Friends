@@ -11,19 +11,18 @@ window.EatFriends.Views.FoodItemsIndex = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		"click #submit-food-search":"foodSearchRequest"
+		"submit #search-foods":"foodSearchRequest"
 	},
 	
 	foodSearchRequest: function (event) {
 		event.preventDefault();
-		var searchTerm = $("#food-search-term").val();
+		var searchTerm = $("#food-search-term").val().toLowerCase();
 		var that = this;
 		this.collection.fetch({ 
 			data: { search_term: searchTerm },
 			success: function () {
 				var foods = that.collection.models
 				console.log(foods)
-				debugger
 				that.handleFoodSearchResults(foods)
 			}
 		})
