@@ -8,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'addressable'
 gem 'figaro'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 gem 'rest-client'
 gem 'gravatar_image_tag'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
