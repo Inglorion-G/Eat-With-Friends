@@ -103,7 +103,7 @@ Backbone.ChartView = Backbone.View.extend({
     };
  
     this.options = $.extend(true, this.default_options, options);
- 
+		
     var breakpoints = _.pairs(this.options.breakpoints);
     this.options.breakpoints = _.sortBy(breakpoints, function(item) {
       return Number(item[0]);

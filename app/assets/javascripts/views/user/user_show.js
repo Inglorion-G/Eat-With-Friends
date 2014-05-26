@@ -32,9 +32,9 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 // 		//var pieData = [carbs, fat, protein]
 // 		var userReportView = new EatFriends.Views.ReportShow({
 // 			el: '.pie-chart',
-// 			data: [{"label":"Protein", "value": 5 },//this.model.totalProtein()}, 
-// 		        {"label":"Fat", "value": 5 },//this.model.totalFat()}, 
-// 		        {"label":"Carbs", "value": 5 }],//this.model.totalCarbs()}],
+// 			// data: [{"label":"Protein", "value": 5 },//this.model.totalProtein()}, 
+// // 		        {"label":"Fat", "value": 5 },//this.model.totalFat()}, 
+// // 		        {"label":"Carbs", "value": 5 }],//this.model.totalCarbs()}],
 // 		  base_height: 220,
 // 		  breakpoints: {
 // 		    728: 0.9,
@@ -43,7 +43,6 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 // 		  }
 // 		});
 // 		$(".pie-chart").html("")
-// 		debugger
 // 		$(".pie-chart").html(userReportView.render())
 // 		this.render()
 // 	},
@@ -59,6 +58,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 			EatFriends.Collections.food_items.get(removedFoodId).calories;
 		var currentCalories = parseInt($('.total-calories').text()) 
 		
+		// dynamically change value of calorie count
 		$('.total-calories').html(currentCalories - subtractCalories)
 		this.removeSubview(".food-diary-body", userFoodView);
 	},
