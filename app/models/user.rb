@@ -20,12 +20,6 @@ class User < ActiveRecord::Base
     SecureRandom::urlsafe_base64(16)
   end
   
-  def daily_calories
-  end
-  
-  def weekly_calories
-  end
-  
   def password=(plain_text)
     if plain_text.present?
       @password = plain_text
