@@ -4,6 +4,11 @@ window.EatFriends = {
   Views: {},
   Routers: {},
   initialize: function() {
+		
+		function capitalize(string) {
+			return string.chartAt(0).toUpperCase() + string.slice(1);
+		}
+		
 		EatFriends.Collections.users = new EatFriends.Collections.Users();
 		EatFriends.Collections.food_items = new EatFriends.Collections.FoodItems();
 		

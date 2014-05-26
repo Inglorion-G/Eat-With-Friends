@@ -1,10 +1,9 @@
 window.EatFriends.Views.FriendShow = Backbone.CompositeView.extend({
 	
 	initialize: function() {
-		//this.listenTo(EatFriends.Collections.food_items, "add", this.render)
 	},
 	
-	template: JST["user/show_friend"],
+	template: JST["show_friend"],
 	
 	events: {
 		"click .add-friend-button":"addFriend"

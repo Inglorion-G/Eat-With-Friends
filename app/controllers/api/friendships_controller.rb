@@ -1,4 +1,4 @@
-class Api::FriendshipController < Api::ApiController
+class Api::FriendshipsController < Api::ApiController
   
   def index
     @friendships = Friendship.all
