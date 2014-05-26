@@ -56,7 +56,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		
 		var removedFoodId = userFoodView.model.get('food_item_id');
 		var subtractCalories = 
-		  EatFriends.Collections.food_items.get(removedFoodId).calories;
+			EatFriends.Collections.food_items.get(removedFoodId).calories;
 		var currentCalories = parseInt($('.total-calories').text()) 
 		
 		$('.total-calories').html(currentCalories - subtractCalories)

@@ -12,7 +12,7 @@ class NXSession
     Addressable::URI.new(
       scheme: "https",
       host: "api.nutritionix.com",
-      path: "v1_1/search/#{food_item}",
+      path: "v1_1/search/#{URI::encode(food_item)}",
       query_values: {
         results: "0:20",
         fields: "brand_name,item_name,item_id,nf_calories,nf_total_fat,nf_total_carbohydrate,nf_protein",

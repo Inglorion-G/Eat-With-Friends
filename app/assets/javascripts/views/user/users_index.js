@@ -1,14 +1,15 @@
 EatFriends.Views.UsersIndex = Backbone.CompositeView.extend({
 	
 	initialize: function() {
-		// this.collection = options.collection;
-// 		this.listenTo(this.collection, "add remove sync", this.render)
+		this.originalCollection = this.collection;
+		this.x = new EatFriends.Collections.Users();
 	},
 	
 	template: JST['users/friends/index'],
 	
 	events: {
-		"submit #search-friends": "friendSearchResults"
+		"submit #search-friends": "friendSearchResults",
+		"keyup": "search"
 	},
 	
 	render: function () {
@@ -19,24 +20,25 @@ EatFriends.Views.UsersIndex = Backbone.CompositeView.extend({
 		return this
 	},
 	
-	friendSearchResults: function(event) {
-		event.preventDefault();		
+	friendSearchResults: function() {
+		$(".friend-search-results").empty();	
 		var searchResultsView = new EatFriends.Views.FriendSearchResults({
-			collection: EatFriends.Collections.users
+			collection: this.x
 		});
 		
 		this.addSubview(".friend-search-results", searchResultsView);
 		searchResultsView.render();
+	},
+	
+	search: function() {
+		var string = $("#friend-search-term").val();
+		
+		var searchString = new RegExp("^.*" + string + ".*$", "i")
+		var searchCollection = this.collection.filter( function(model) {
+			return searchString.test(model.get('username'))
+		})
+		this.x.set(searchCollection)
+		this.friendSearchResults()
 	}
 	
 });
-
-// friendSearchResults.fetch({
-// 	success: function () {
-// 		var friendSearchResultsView = new EatFriends.Views.FriendSearchResults({
-// 			friendships: that.collection
-// 		})
-// 		
-// 	}
-// });
-//var friendSearchResults = new EatFriends.Collections.friendships();
