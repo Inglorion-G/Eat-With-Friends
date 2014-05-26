@@ -28,7 +28,8 @@ window.EatFriends.Views.FoodItemsIndex = Backbone.CompositeView.extend({
 	},
 	
 	handleFoodSearchResults: function(foods) {
-		event.preventDefault();		
+		event.preventDefault();
+		$(".food-search-results").empty();		
 		var searchResultsView = new EatFriends.Views.FoodSearch({
 			collection: foods
 		});

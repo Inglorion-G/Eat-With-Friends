@@ -1,5 +1,5 @@
 EatFriends.Views.FriendSearchResults = Backbone.CompositeView.extend({
-	template: JST['users/friend_search_results'],
+	template: JST['users/friends/friend_search_results'],
 	
 	initialize: function (options) {
 		this.collection = options.collection
