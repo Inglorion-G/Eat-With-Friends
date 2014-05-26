@@ -38,6 +38,10 @@
 	background-size: cover;
 }
 
+#friend-search-panel {
+	width: 300px;
+}
+
 ul {
 	list-style-type: none;
 }
@@ -62,6 +66,15 @@ ul {
 }
 
 .add-food-button {
+	position:relative;
+	top: -40px;
+}
+
+.add-friend {
+  float: left;
+}
+
+.add-friend-button {
 	position:relative;
 	top: -40px;
 }

@@ -1,3 +1,21 @@
-<% users.forEach(function () { %>
-	<h1><%= user.escape('username') %></h1>
-<% }) %>
+<h1>Find Friends</h1>
+
+<row>
+  <div class="status-column col-xs-4 col-xs-offset-1">
+	  <form role="form" id="search-friends">
+		  <div class="form-group" id="search-friends-by-name">
+				<label for="friend-search-term">Enter Friend Name</label>
+			  <input type="text" id="friend-search-term" class="form-control" placeholder="Who d'ya wanna eat with?">
+			</div>
+
+			<div class="form-group">
+			  <input type="submit" id="submit-friend-search" class="btn btn-primary" value="Search for Friend!">
+			</div>
+	  </form>
+	</div>
+	
+	<div class="status-column col-xs-4 col-xs-offset-1">
+		<div class="friend-search-results">
+		</div>
+  </div>
+</row>
