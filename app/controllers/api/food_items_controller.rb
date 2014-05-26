@@ -27,7 +27,6 @@ class Api::FoodItemsController < Api::ApiController
   
   def search_food
     search_term = params[:search_term]
-    #db_search_term = SearchTerm.where(term: search_term)
     term = SearchTerm.find_by(:term => search_term)
     
     # move all this to the model

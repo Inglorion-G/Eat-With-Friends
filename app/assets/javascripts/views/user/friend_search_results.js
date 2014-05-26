@@ -4,16 +4,6 @@ EatFriends.Views.FriendSearchResults = Backbone.CompositeView.extend({
 	initialize: function (options) {
 		this.collection = options.collection
 		this.addFriendSubviews();
-		
-		// var friends = new Bloodhound({
-// 		  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-// 		  queryTokenizer: Bloodhound.tokenizers.whitespace,
-// 		  // `states` is an array of state names defined in "The Basics"
-// 		  local: $.map(this.collection.models, function(state) { return { value: friend }; })
-// 		});
-//  
-// 		// kicks off the loading/processing of `local` and `prefetch`
-// 		friends.initialize();
 	},
 	
 	render: function () {
@@ -22,19 +12,6 @@ EatFriends.Views.FriendSearchResults = Backbone.CompositeView.extend({
 		});
 		this.$el.html(content);
 		this.attachSubviews();
-		
-		// $('#bloodhound .typeahead').typeahead({
-	// 	  hint: true,
-	// 	  highlight: true,
-	// 	  minLength: 1
-	// 	},
-	// 	{
-	// 	  name: 'friends',
-	// 	  displayKey: 'value',
-	// 	  // `ttAdapter` wraps the suggestion engine in an adapter that
-	// 	  // is compatible with the typeahead jQuery plugin
-	// 	  source: friends.ttAdapter()
-	// 	});
 		
 		return this
 	},
@@ -48,5 +25,31 @@ EatFriends.Views.FriendSearchResults = Backbone.CompositeView.extend({
 			that.addSubview("#friend-search-panel", friendShowView);
 		})	
 	}
-	
 });
+
+// this goes in the initialize
+
+		// var friends = new Bloodhound({
+// 		  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+// 		  queryTokenizer: Bloodhound.tokenizers.whitespace,
+// 		  // `states` is an array of state names defined in "The Basics"
+// 		  local: $.map(this.collection.models, function(state) { return { value: friend }; })
+// 		});
+//  
+// 		// kicks off the loading/processing of `local` and `prefetch`
+// 		friends.initialize();
+
+// this goes in the render
+
+	// $('#bloodhound .typeahead').typeahead({
+// 	  hint: true,
+// 	  highlight: true,
+// 	  minLength: 1
+// 	},
+// 	{
+// 	  name: 'friends',
+// 	  displayKey: 'value',
+// 	  // `ttAdapter` wraps the suggestion engine in an adapter that
+// 	  // is compatible with the typeahead jQuery plugin
+// 	  source: friends.ttAdapter()
+// 	});
