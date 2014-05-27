@@ -1,6 +1,7 @@
 window.EatFriends.Views.FriendShow = Backbone.CompositeView.extend({
 	
-	initialize: function() {
+	initialize: function(options) {
+		this.alreadyFriend = options.alreadyFriend
 	},
 	
 	template: JST["users/friends/show_friend"],
@@ -11,7 +12,8 @@ window.EatFriends.Views.FriendShow = Backbone.CompositeView.extend({
 	
 	render: function () {
 		var content = this.template({
-			friend: this.model
+			friend: this.model,
+			alreadyFriend: this.alreadyFriend
 		});
 		
 		this.$el.html(content);
@@ -21,7 +23,7 @@ window.EatFriends.Views.FriendShow = Backbone.CompositeView.extend({
 	addFriend: function(event) {
 		event.preventDefault();
 		var newFriendship = new EatFriends.Models.Friendship({
-			friend_id: this.model.id
+			friend_id: this.model.id,
 		})
 		newFriendship.save();
 		this.render();

@@ -18,9 +18,9 @@
 </div>
 
 <script type="text/javascript">
-// var totalCarbs = user.totalCarbs();
-// 	 var totalFat = user.totalFat();
-// 	 var totalProtein = user.totalProtein();
+   var totalCarbs = <%= user.totalCarbs() %>
+ 	 var totalFat = <%= user.totalFat() %>
+ 	 var totalProtein = <%= user.totalProtein() %>
 
 var w = 300,                       
 h = 300,                           
@@ -28,9 +28,9 @@ r = 100,
 color = d3.scale.ordinal().range(["#2F7689", "#FF4444", 
 				"#99CC00"]);   
 
-data = [{"label":"Protein", "value": 5}, 
-        {"label":"Fat", "value": 5}, 
-        {"label":"Carbs", "value": 5}];
+data = [{"label":"Protein", "value": totalProtein}, 
+        {"label":"Fat", "value": totalFat}, 
+        {"label":"Carbs", "value": totalCarbs}];
 
 var vis = d3.select(".pie-chart")
     .append("svg:svg")              
