@@ -2,10 +2,16 @@ EatFriends.Views.Leaderboard = Backbone.CompositeView.extend({
 	
 	initialize: function() {
 		var that = this;
-		// var timeframe = options.timeframe;
+		//var timeframe = options.timeframe;
 		this.collection = new EatFriends.Collections.Users();
 		this.collection.url = "/api/leaderboards";
-		this.collection.comparator = this.comparator;
+		this.collection.comparator = this.sortByDaily;
+		// if (timeframe === "daily") {
+// 			this.collection.comparator = this.sortByDaily;
+// 		} else {
+// 			this.collection.comparator = this.sortByWeekly;
+// 		}
+		
 		this.collection.fetch({
 			success: function() {
 				that.collection.each(that.addLeader.bind(that));
@@ -27,12 +33,12 @@ EatFriends.Views.Leaderboard = Backbone.CompositeView.extend({
 		return this;
 	},
 	
-	comparator: function (leader1, leader2) {
-		// if (this.timeframe === "daily") {
+	sortByDaily: function (leader1, leader2) {
 	  return( leader1.get('daily_calories') < leader2.get('daily_calories'))
-		// } else {
-	// 		return ( leader1.get('weekly_calories') < leader2.get('weekly_calories'))
-	// 	}
+	},
+	
+	sortByWeekly: function (leader1, leader2) {
+		return( leader1.get('weekly_calories') < leader2.get('weekly_calories'))
 	},
 	
 	addLeader: function(leader) {
