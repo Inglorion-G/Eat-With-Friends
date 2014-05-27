@@ -1,15 +1,19 @@
 class User < ActiveRecord::Base
+  include Commentable
   attr_reader :password
   
   validates :username, :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   
   before_validation :ensure_session_token
+  
   has_many :user_food_items
   has_many :food_items, through: :user_food_items, source: :food_item
   
   has_many :friendships
   has_many :friends, through: :friendships, source: :friend
+  
+  has_many :authored_comments, class_name: "Comment", foreign_key: :author_id
   
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
@@ -19,12 +23,6 @@ class User < ActiveRecord::Base
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
   end
-  
-  # def self.leaderboards
-  #   leaders = {}
-  #   self.friends.each do |friend|
-  #     leaders["friend.username"] = {"daily_cals" => }
-  # end
   
   def email_hash
     Digest::MD5.hexdigest(self.email.downcase)
