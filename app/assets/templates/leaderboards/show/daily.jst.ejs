@@ -6,6 +6,9 @@
 		
 		<div class="panel-body leaderboard-panel-body">
 			<div class="daily-leaderboard">
+				<% leaders.each( function(leader) { %>
+					<p><%= leader.escape('username') %></p>
+				<% }) %>
 			</div>
 		</div>
 	</div>

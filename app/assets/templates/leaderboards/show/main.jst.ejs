@@ -1,4 +1,4 @@
 <div class='tab-content'>
-  <%= JST["leaderboards/show/daily"]() %>
-	<%= JST["leaderboards/show/weekly"]() %>
+  <%= JST["leaderboards/show/daily"]({ leaders: leaders }) %>
+	<%= JST["leaderboards/show/weekly"]({ leaders: leaders }) %>
 </div>
