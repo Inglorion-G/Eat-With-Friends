@@ -11,7 +11,6 @@ window.EatFriends.Views.FriendShow = Backbone.CompositeView.extend({
 	},
 	
 	render: function () {
-		console.log("it's " + this.alreadyFriend + " that Im friends with " + this.model.get('username'));
 		var content = this.template({
 			friend: this.model,
 			alreadyFriend: this.alreadyFriend
