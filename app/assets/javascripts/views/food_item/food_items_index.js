@@ -56,11 +56,15 @@ window.EatFriends.Views.FoodItemsIndex = Backbone.CompositeView.extend({
 	
 	search: function() {
 		var string = $("#food-search-term").val().toLowerCase();
-		debugger
+		if (string === "") {
+			return this.foodSearchResults.reset();
+		}
+		
 		var searchString = new RegExp("^.*" + string + ".*$", "i")
 		var searchCollection = EatFriends.Collections.food_items.filter( function(model) {
 			return searchString.test(model.get('item_name'))
-		})
+		});
+		
 		this.foodSearchResults.set(searchCollection)
 		this.responsiveFoodSearchResults()
 	}

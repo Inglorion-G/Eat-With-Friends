@@ -2,6 +2,7 @@ EatFriends.Views.UsersIndex = Backbone.CompositeView.extend({
 	
 	initialize: function() {
 		this.originalCollection = this.collection;
+		this.listenTo(this.model, "sync", this.render);
 		this.friendSearchResults = new EatFriends.Collections.Users();
 	},
 	

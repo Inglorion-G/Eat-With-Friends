@@ -28,10 +28,12 @@ EatFriends.Routers.AppRouter = Backbone.Router.extend({
 	},
 	
 	addFriends: function () {
+		var user = EatFriends.Collections.users.getOrFetch(currentUserID);
 		var usersIndexView = new EatFriends.Views.UsersIndex({
+			model: user,
 			collection: EatFriends.Collections.users
-		})
-		
+		});
+		user.fetch();
 		EatFriends.Collections.users.fetch();
 		//EatFriends.Collections.food_items.fetch();
 		

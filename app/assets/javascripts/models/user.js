@@ -3,24 +3,12 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 	
 	parse: function (payload) {
 		if (payload.user_food_items) {
-			var user_food_items = payload.user_food_items;
-			var friendships = payload.friendships;
-			var that = this;
-			
-			_(user_food_items).each(function (user_food_data) {
-				var user_food_item = 
-				  new EatFriends.Models.UserFoodItem(user_food_data, {parse: true});
-				
-				that.user_food_items().add(user_food_item);
-			});
-			
-			_(friendships).each(function (friendship_data) {
-				var friendship = 
-				  new EatFriends.Models.Friendship(friendship_data, {parse: true});
-				that.friendships().add(friendship);
-			});
-	
+			this.user_food_items().set(payload.user_food_items, { parse: true })
 			delete payload.user_food_items;
+		}
+		
+		if (payload.friendships){
+			this.friendships().set(payload.friendships, { parse: true });
 			delete payload.friendships;
 		}
 		
@@ -45,13 +33,27 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 		return this._friendships;
 	},
 	
-	// friends: function() {
-// 		var friends = new EatFriends.Collections.Users()
-// 		this.friendships().each( function(friendship) {
-// 			friends.add(friendship.friend())
-// 		})
-// 		return friends;
-// 	},
+	alreadyFriend: function (user) {
+		//should return true is this is already friends with user
+		var friend = false;
+		this.friendships().each(function(friendship){
+			if(parseInt(friendship.get('friend_id')) == user.id){
+				friend = true;
+			}
+		})
+		return friend;
+		// return this.friendships().some( function(friendship) {
+		// 	friendship.get('friend_id') == user.id
+		// });
+	},
+	
+	friends: function() {
+		var friends = new EatFriends.Collections.Users()
+		this.friendships().each( function(friendship) {
+			friends.add(friendship.friend())
+		})
+		return friends;
+	},
 	
 	// user methods for returning daily nutritional values
 	
