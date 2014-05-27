@@ -2,13 +2,16 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 
 	template: JST['users/show'],
 	
-	initialize: function () {
+	initialize: function () {		
 		this.listenTo(this.model, "sync", this.render);
 		this.listenTo(this.model.user_food_items(), "sync", this.render);
 		this.listenTo(this.model.user_food_items(), "add", this.addUserFood);
 		this.listenTo(this.model.user_food_items(), "remove", this.removeUserFood);
+		this.listenTo(this.model.friendships(), "sync", this.render)
+		this.listenTo(this.model.friendships(), "add", this.addUserFriend);
 		
 		this.model.user_food_items().each(this.addUserFood.bind(this));
+		this.model.friendships().each(this.addUserFriend.bind(this));
 		//this.addUserReports()
 	},
 	
@@ -26,6 +29,53 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		
 		this.addSubview(".food-diary-body", userFoodView);
 		userFoodView.render()
+	},
+	
+	addUserFriend: function(friendship) {
+		var friendShowView = new EatFriends.Views.UserFriendShow({
+			user: this.model,
+			model: friendship
+		})
+		
+		this.addSubview(".friends-body", friendShowView)
+		friendShowView.render()
+	},
+	
+	removeUserFood: function(food_item) {
+		var userFoodView = 
+		_(this.subviews()[".food-diary-body"]).find(function (subview) {
+			return subview.model === food_item;
+		});
+		
+		var removedFoodId = userFoodView.model.get('food_item_id');
+		var subtractCalories = 
+			EatFriends.Collections.food_items.get(removedFoodId).calories;
+		var currentCalories = parseInt($('.total-calories').text()) 
+		
+		// dynamically change value of calorie count
+		$('.total-calories').html(currentCalories - subtractCalories)
+		this.removeSubview(".food-diary-body", userFoodView);
+	},
+	
+	render: function () {
+		debugger
+		var content = this.template({
+			user: this.model
+		});
+		
+		this.$el.html(content);
+		this.attachSubviews();
+		return this;
+	},
+	
+	switchTabs: function(event) {
+		event.preventDefault();
+		$(event.currentTarget).tab('show');
+	},
+	
+	foodSearchPage: function (event) {
+		event.preventDefault();
+		Backbone.history.navigate("#/food_items/index")
 	},
 	
 	// addUserReports: function() {
@@ -46,41 +96,5 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 // 		$(".pie-chart").html(userReportView.render())
 // 		this.render()
 // 	},
-	
-	removeUserFood: function(food_item) {
-		var userFoodView = 
-		_(this.subviews()[".food-diary-body"]).find(function (subview) {
-			return subview.model === food_item;
-		});
-		
-		var removedFoodId = userFoodView.model.get('food_item_id');
-		var subtractCalories = 
-			EatFriends.Collections.food_items.get(removedFoodId).calories;
-		var currentCalories = parseInt($('.total-calories').text()) 
-		
-		// dynamically change value of calorie count
-		$('.total-calories').html(currentCalories - subtractCalories)
-		this.removeSubview(".food-diary-body", userFoodView);
-	},
-	
-	render: function () {
-		var content = this.template({
-			user: this.model
-		});
-		
-		this.$el.html(content);
-		this.attachSubviews();
-		return this;
-	},
-	
-	switchTabs: function(event) {
-		event.preventDefault();
-		$(event.currentTarget).tab('show');
-	},
-	
-	foodSearchPage: function (event) {
-		event.preventDefault();
-		Backbone.history.navigate("#/food_items/index")
-	},
 	
 });

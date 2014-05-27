@@ -28,6 +28,10 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 		return payload;
 	},
 	
+	gravatar: function() {
+		return "https://secure.gravatar.com/avatar/" + this.get('email_hash')
+	},
+	
 	user_food_items: function () {
 		this._user_food_items = this._user_food_items ||
 		new EatFriends.Collections.UserFoodItems([], { user: this });

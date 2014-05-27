@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     SecureRandom::urlsafe_base64(16)
   end
   
+  def email_hash
+    Digest::MD5.hexdigest(self.email.downcase)
+  end
+  
   def password=(plain_text)
     if plain_text.present?
       @password = plain_text

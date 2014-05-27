@@ -4,8 +4,8 @@
 		<h4>Daily Summary for <%= user.escape('username') %></h4>
 	</div>
 		<div class="panel-body daily-summary-body">
-			<div class="profile-picture" style="width:120px;height:120px;background-color:#ffcc00;float:left">
-				<p>Profile picture!</p>
+			<div class="profile-picture" style="width:120px;height:120px;float:left">
+				<img height=120 width=120 src="<%= user.gravatar() %>">
 			</div>
 	
 			<div class="total-calories">

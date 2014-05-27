@@ -2,9 +2,10 @@ EatFriends.Routers.AppRouter = Backbone.Router.extend({
 	
 	routes: {
 		"":"dashboard",
-		"food_items/index":"searchFoods",
 		"users/index":"addFriends",
-		"users/leaderboard":"leaderBoard"
+		"users/leaderboard":"leaderBoard",
+		"users/:id": "showUserProfile",
+		"food_items/index":"searchFoods",
 	},
 	
 	dashboard: function (id) {
@@ -14,6 +15,15 @@ EatFriends.Routers.AppRouter = Backbone.Router.extend({
 		});
 		
 		EatFriends.Collections.food_items.fetch();
+		this._swapView(userShowView);
+	},
+	
+	showUserProfile: function(id) {
+		var user = EatFriends.Collections.users.getOrFetch(id);
+		var userShowView = new EatFriends.Views.UserShow({
+			model: user
+		});
+		
 		this._swapView(userShowView);
 	},
 	
