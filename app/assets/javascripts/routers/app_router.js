@@ -52,9 +52,7 @@ EatFriends.Routers.AppRouter = Backbone.Router.extend({
 	leaderBoard: function() {
 		//var user = EatFriends.Collections.users.getOrFetch(currentUserID);
 		var leaderboard = new EatFriends.Views.Leaderboard();
-		var leaderboardView = new EatFriends.Views.Leaderboard({
-			model: leaderboard
-		});
+		var leaderboardView = new EatFriends.Views.Leaderboard();
 		
 		this._swapView(leaderboardView);
 	},
