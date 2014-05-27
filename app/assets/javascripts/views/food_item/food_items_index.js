@@ -1,6 +1,11 @@
 window.EatFriends.Views.FoodItemsIndex = Backbone.CompositeView.extend({
 	template: JST["food_items/index"],
 	
+	initialize: function () {
+		this.originalCollection = this.collection;
+		this.foodSearchResults = new EatFriends.Collections.FoodItems();
+	},
+	
 	render: function () {
 		var content = this.template({
 			collection: this.collection
@@ -11,7 +16,8 @@ window.EatFriends.Views.FoodItemsIndex = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		"submit #search-foods":"foodSearchRequest"
+		"submit #search-foods":"foodSearchRequest",
+		"keyup": "search"
 	},
 	
 	foodSearchRequest: function (event) {
@@ -36,5 +42,26 @@ window.EatFriends.Views.FoodItemsIndex = Backbone.CompositeView.extend({
 		
 		this.addSubview(".food-search-results", searchResultsView);
 		searchResultsView.render();
+	},
+	
+	responsiveFoodSearchResults: function() {
+		$(".food-search-results").empty();	
+		var responsiveResultsView = new EatFriends.Views.FoodSearch({
+			collection: this.foodSearchResults
+		});
+		
+		this.addSubview(".food-search-results", responsiveResultsView);
+		responsiveResultsView.render();
+	},
+	
+	search: function() {
+		var string = $("#food-search-term").val().toLowerCase();
+		debugger
+		var searchString = new RegExp("^.*" + string + ".*$", "i")
+		var searchCollection = EatFriends.Collections.food_items.filter( function(model) {
+			return searchString.test(model.get('item_name'))
+		})
+		this.foodSearchResults.set(searchCollection)
+		this.responsiveFoodSearchResults()
 	}
 });
