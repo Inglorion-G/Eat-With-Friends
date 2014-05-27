@@ -17,7 +17,6 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 			_(friendships).each(function (friendship_data) {
 				var friendship = 
 				  new EatFriends.Models.Friendship(friendship_data, {parse: true});
-					
 				that.friendships().add(friendship);
 			});
 	
@@ -46,13 +45,13 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 		return this._friendships;
 	},
 	
-	friends: function() {
-		var friends = new EatFriends.Collections.Users()
-		this.friendships().each( function(friendship) {
-			friends.add(friendship.friend())
-		})
-		return friends;
-	},
+	// friends: function() {
+// 		var friends = new EatFriends.Collections.Users()
+// 		this.friendships().each( function(friendship) {
+// 			friends.add(friendship.friend())
+// 		})
+// 		return friends;
+// 	},
 	
 	// user methods for returning daily nutritional values
 	

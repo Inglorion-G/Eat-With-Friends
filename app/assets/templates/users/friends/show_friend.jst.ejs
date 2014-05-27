@@ -1,7 +1,11 @@
 <div class="well well-sm friend-result">
 	<p><%= friend.escape('username') %></p>
 	<p>  </p>
-	<span class="add-friend">
-		<button type="button" class="btn btn-success btn-sm pull-right add-friend-button">Add Friend</button>
-	</span>
+	<% if (alreadyFriend === true) { %>
+		<p>Already friends!</p>
+	<% } else { %>
+		<span class="add-friend">
+			<button type="button" class="btn btn-success btn-sm pull-right add-friend-button">Add Friend</button>
+		</span>
+	<% } %>
 </div>

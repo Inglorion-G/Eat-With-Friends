@@ -12,7 +12,6 @@ window.EatFriends.Views.UserFriendShow = Backbone.CompositeView.extend({
 	template: JST["user_friends/show"],
 	
 	showUserProfile: function(event) {
-		debugger
 		event.preventDefault();
 		Backbone.history.navigate("/users/" + this.model.get('friend_id'), {trigger: true})
 	},

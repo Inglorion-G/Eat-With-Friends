@@ -7,7 +7,6 @@ window.EatFriends.Collections.Users = Backbone.Collection.extend({
 		var users = this;
 		
 		if (model = this.get(id)) {
-			model.fetch();
 			return model;
 		} else {
 			model = new EatFriends.Models.User( {id: id} );

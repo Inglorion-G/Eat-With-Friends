@@ -17,10 +17,12 @@ EatFriends.Views.FriendSearchResults = Backbone.CompositeView.extend({
 	},
 	
 	addFriendSubviews: function () {
+		var currentUser = EatFriends.Collections.users.getOrFetch(currentUserID);
 		var that = this;
 		this.collection.each( function(user) {
 			var friendShowView = new EatFriends.Views.FriendShow({
-				model: user
+				model: user,
+				alreadyFriend: currentUser
 			})
 			that.addSubview("#friend-search-panel", friendShowView);
 		})	

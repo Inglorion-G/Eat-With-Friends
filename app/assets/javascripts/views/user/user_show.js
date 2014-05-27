@@ -58,7 +58,6 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	},
 	
 	render: function () {
-		debugger
 		var content = this.template({
 			user: this.model
 		});
