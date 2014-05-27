@@ -41,6 +41,30 @@ class User < ActiveRecord::Base
     self.session_token
   end
   
+  def daily_calories
+    daily_cals = 0
+    user_food_items = self.user_food_items
+      .where(created_at: (DateTime.now.at_beginning_of_day.utc..Time.now.utc))
+    
+    user_food_items.each do |user_food_item|
+      daily_cals += user_food_item.food_item.calories
+    end
+    
+    daily_cals
+  end
+  
+  def weekly_calories
+    weekly_cals = 0
+    user_food_items = self.user_food_items
+      .where(created_at: (7.days.ago...Time.now.utc))
+      
+    user_food_items.each do |user_food_item|
+      weekly_cals += user_food_item.food_item.calories
+    end
+    
+    weekly_cals
+  end
+  
   private
   
     def ensure_session_token

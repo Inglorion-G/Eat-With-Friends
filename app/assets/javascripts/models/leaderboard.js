@@ -1,0 +1,1 @@
+EatFriends.Models.Leaderboard = Backbone.Model.extend({});
