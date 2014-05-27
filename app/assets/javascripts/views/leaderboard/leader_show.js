@@ -1,15 +1,10 @@
 window.EatFriends.Views.LeaderShow = Backbone.CompositeView.extend({
 	
-	// initialize: function(options) {
-// 		this.user = options.user
-// 		this.listenTo(this.user.friendships(), "add sync", this.render)
-// 	},
-	
 	events: {
 		"click .view-profile": "showUserProfile"
 	},
 	
-	template: JST["leaderboards/leaders/show"],
+	template: JST["leaderboards/leaders/daily_show"],
 	
 	showUserProfile: function(event) {
 		event.preventDefault();
@@ -17,7 +12,6 @@ window.EatFriends.Views.LeaderShow = Backbone.CompositeView.extend({
 	},
 	
 	render: function () {
-		debugger
 		var content = this.template({
 			leader: this.model
 		});

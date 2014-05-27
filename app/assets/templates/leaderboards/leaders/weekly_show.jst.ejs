@@ -1,8 +1,14 @@
-<div class="well well-sm leader-show">
+<div class="well well-sm weekly-leader-show">
 	<div class="user-profile-img">
 	  <img src= "<%= leader.gravatar() %>">
 	</div>
-	<p><%= leader.escape('username') %></p>
+	<div class="leader-name">
+		<p><%= leader.escape('username') %></p>
+	</div>
+	
+	<div class="leader-calories">
+		<%= leader.escape('weekly_calories') %>
+	</div>
 	<span class="view-profile">
 		<a href="#/users/<%= leader.escape('id') %>"><button type="button" class="btn btn-info btn-lg pull-right view-profile-button">View Profile</button></a>
 	</span>

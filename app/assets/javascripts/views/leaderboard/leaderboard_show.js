@@ -2,6 +2,7 @@ EatFriends.Views.Leaderboard = Backbone.CompositeView.extend({
 	
 	initialize: function() {
 		var that = this;
+		// var timeframe = options.timeframe;
 		this.collection = new EatFriends.Collections.Users();
 		this.collection.url = "/api/leaderboards";
 		this.collection.comparator = this.comparator;
@@ -27,11 +28,14 @@ EatFriends.Views.Leaderboard = Backbone.CompositeView.extend({
 	},
 	
 	comparator: function (leader1, leader2) {
-		return( leader1.get('daily_calories') < leader2.get('daily_calories'))
+		// if (this.timeframe === "daily") {
+	  return( leader1.get('daily_calories') < leader2.get('daily_calories'))
+		// } else {
+	// 		return ( leader1.get('weekly_calories') < leader2.get('weekly_calories'))
+	// 	}
 	},
 	
 	addLeader: function(leader) {
-		debugger
 		var leaderShowView = new EatFriends.Views.LeaderShow({
 			model: leader
 		})
