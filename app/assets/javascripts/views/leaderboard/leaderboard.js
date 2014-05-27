@@ -1,16 +1,13 @@
-EatFriends.Views.LeaderBoard = Backbone.CompositeView.extend({
+EatFriends.Views.Leaderboard = Backbone.CompositeView.extend({
 	
 	initialize: function(options) {
-		this.leaders = options.leaders;
+		//this.leaders = options.leaders;
 	},
 	
-	template: JST['leaderboards/leaderboard'],
+	template: JST['leaderboards/show_leaderboard'],
 	
 	render: function () {
-		var content = this.template({
-			user: this.model,
-			leaders: this.leaders
-		});
+		var content = this.template();
 		this.$el.html(content);
 		return this
 	},

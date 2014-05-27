@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
     SecureRandom::urlsafe_base64(16)
   end
   
+  # def self.leaderboards
+  #   leaders = {}
+  #   self.friends.each do |friend|
+  #     leaders["friend.username"] = {"daily_cals" => }
+  # end
+  
   def email_hash
     Digest::MD5.hexdigest(self.email.downcase)
   end
