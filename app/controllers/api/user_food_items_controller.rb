@@ -1,6 +1,7 @@
 class Api::UserFoodItemsController < Api::ApiController
   
   def index
+    # only return user food items from the current day
     @user_food_items = UserFoodItem.all
     render json: @user_food_items
   end

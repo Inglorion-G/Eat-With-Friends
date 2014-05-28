@@ -45,6 +45,11 @@ class User < ActiveRecord::Base
     self.session_token
   end
   
+  def daily_user_food_items
+    user_food_items = self.user_food_items
+      .where(created_at: (DateTime.now.at_beginning_of_day.utc..Time.now.utc))
+  end
+  
   def daily_calories
     daily_cals = 0
     user_food_items = self.user_food_items
