@@ -66,20 +66,32 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 			return subview.model === food_item;
 		});
 		
-		var removedFoodId = userFoodView.model.get('food_item_id');
-		var subtractCalories = 
-			EatFriends.Collections.food_items.get(removedFoodId).calories;
-		var currentCalories = parseInt($('.total-calories').text()) 
+		this.decrementUserCalories(userFoodView);
+		
+		// var removedFoodId = userFoodView.model.get('food_item_id');
+// 		var subtractCalories = 
+// 			EatFriends.Collections.food_items.get(removedFoodId).calories;
+// 		var currentCalories = parseInt($('.total-calories').text()) 
 		
 		// dynamically change value of calorie count
-		$('.total-calories').html(currentCalories - subtractCalories)
+		// $('.total-calories').html(currentCalories - subtractCalories)
 		this.removeSubview(".food-diary-body", userFoodView);
 	},
 	
+	decrementUserCalories: function(userFoodView) {
+		var removedFoodId = userFoodView.model.get('food_item_id');
+		var subtractCalories = 
+			EatFriends.Collections.food_items.get(removedFoodId).calories;
+		var currentCalories = parseInt($('.total-calories').text()) - subtractCalories
+		
+		var currentProgress = (currentCalories / 3000) * 100
+		debugger
+		// dynamically change value of calorie count
+		$('.total-calories').html(currentCalories)
+		$('.progress-bar').attr("style", "width: " + currentProgress + "%")
+	},
+	
 	render: function () {
-		// if (this.globalUsers.length === 0) {
-// 			return this.$el.html("")
-// 		}
 		var content = this.template({
 			user: this.model
 		});
