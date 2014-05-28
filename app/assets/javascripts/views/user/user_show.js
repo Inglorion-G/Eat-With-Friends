@@ -2,10 +2,13 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 
 	template: JST['users/show'],
 	
-	initialize: function () {		
+	initialize: function () {	
+		this.globalUsers = EatFriends.Collections.users;
 		this.listenTo(this.model, "sync", this.render);
 		
-		this.listenTo(this.model.user_food_items(), "sync add", this.render);
+		//this.listenTo(EatFriends.Collections.users, "sync", this.render);
+		
+		this.listenTo(this.model.user_food_items(), "sync", this.render);
 		this.listenTo(this.model.user_food_items(), "add", this.addUserFood);
 		this.listenTo(this.model.user_food_items(), "remove", this.removeUserFood);
 		
@@ -18,7 +21,6 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		this.model.user_food_items().each(this.addUserFood.bind(this));
 		this.model.friendships().each(this.addUserFriend.bind(this));
 		this.model.comments().each(this.addUserComment.bind(this));
-		//this.addUserReports()
 	},
 	
 	events: {
@@ -35,7 +37,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		
 		this.addSubview(".food-diary-body", userFoodView);
 		userFoodView.render()
-		//this.render()
+		this.render()
 	},
 	
 	addUserFriend: function(friendship) {
@@ -75,6 +77,9 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	},
 	
 	render: function () {
+		// if (this.globalUsers.length === 0) {
+// 			return
+// 		}
 		var content = this.template({
 			user: this.model
 		});
@@ -106,24 +111,5 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		newComment.save();
 		this.model.comments().add(newComment)
 	}
-	
-	// addUserReports: function() {
-// 		//var pieData = [carbs, fat, protein]
-// 		var userReportView = new EatFriends.Views.ReportShow({
-// 			el: '.pie-chart',
-// 			// data: [{"label":"Protein", "value": 5 },//this.model.totalProtein()}, 
-// // 		        {"label":"Fat", "value": 5 },//this.model.totalFat()}, 
-// // 		        {"label":"Carbs", "value": 5 }],//this.model.totalCarbs()}],
-// 		  base_height: 220,
-// 		  breakpoints: {
-// 		    728: 0.9,
-// 		    420: 0.7,
-// 		    380: 0.65
-// 		  }
-// 		});
-// 		$(".pie-chart").html("")
-// 		$(".pie-chart").html(userReportView.render())
-// 		this.render()
-// 	},
 	
 });

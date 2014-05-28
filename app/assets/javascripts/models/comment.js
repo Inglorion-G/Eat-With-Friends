@@ -7,4 +7,8 @@ EatFriends.Models.Comment = Backbone.Model.extend({
 		this.commentableType = options.commentableType;
 		this.body = options.body;
 	},
+	
+	author: function() {
+		return EatFriends.Collections.users.get(this.author_id);
+	}
 })

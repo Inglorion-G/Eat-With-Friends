@@ -19,7 +19,7 @@ class Api::UserFoodItemsController < Api::ApiController
     @user_food_item.user_id = current_user.id
     
     if @user_food_item.save
-      redirect_to :back
+      render "api/user_food_item/user_food_item", locals: { user_food_item: @user_food_item }
     else
       flash.now[:errors] = @user_food_item.errors.full_messages
       render :new, status: 422

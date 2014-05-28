@@ -96,16 +96,41 @@ ul {
 	margin: 10px;
 }
 
+.news-feed {
+	min-height: 100px;
+	max-height: 500px;
+	overflow-y: hidden;
+}
+
+.news-feed-comments {
+	max-height: 400px;
+	overflow-y: hidden;
+	overflow-y: scroll;
+}
+
+.news-feed-form {
+	margin: 0px 0px 20px 0px;
+}
+
 .share-comment {
 	float: left;
 }
 
 .submit-comment {
 	float: left;
+	position: relative;
+	top: -55px;
 }
 
 .comment-text-field {
 	float: left;
+  width: 300px; 
+  min-width:300px; 
+  max-width:300px; 
+
+  height:100px; 
+  min-height:100px;  
+  max-height:100px;
 }
 
 #calories-progress {

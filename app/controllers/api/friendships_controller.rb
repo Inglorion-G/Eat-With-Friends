@@ -19,7 +19,7 @@ class Api::FriendshipsController < Api::ApiController
     @friendship.user_id = current_user.id
     
     if @friendship.save
-      redirect_to :back
+      render json: @friendship
     else
       flash.now[:errors] = @friendship.errors.full_messages
       render :new, status: 422

@@ -7,7 +7,7 @@ class Api::SearchTermsController < Api::ApiController
     @search_term = SearchTerm.new(search_term_params)
     
     if @search_term.save
-      redirect_to :back
+      render json: @search_term
     else
       flash.now[:errors] = @search_term.errors.full_messages
       render :new, status: 422

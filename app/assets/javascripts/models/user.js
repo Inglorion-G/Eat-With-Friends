@@ -8,6 +8,7 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 		}
 		
 		if (payload.friendships){
+			this.friendships().reset();
 			this.friendships().set(payload.friendships, { parse: true });
 			delete payload.friendships;
 		}

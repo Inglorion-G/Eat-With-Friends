@@ -14,7 +14,9 @@ window.EatFriends = {
 		}
 		
 		EatFriends.Collections.users = new EatFriends.Collections.Users();
+		EatFriends.Collections.users.fetch();
 		EatFriends.Collections.food_items = new EatFriends.Collections.FoodItems();
+		EatFriends.Collections.food_items.fetch();
 		
     new EatFriends.Routers.AppRouter();
 		Backbone.history.start();
