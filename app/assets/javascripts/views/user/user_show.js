@@ -4,21 +4,27 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	
 	initialize: function () {		
 		this.listenTo(this.model, "sync", this.render);
-		this.listenTo(this.model.user_food_items(), "sync", this.render);
+		
+		this.listenTo(this.model.user_food_items(), "sync add", this.render);
 		this.listenTo(this.model.user_food_items(), "add", this.addUserFood);
 		this.listenTo(this.model.user_food_items(), "remove", this.removeUserFood);
-		this.listenTo(this.model.friendships(), "sync", this.render)
+		
+		this.listenTo(this.model.friendships(), "sync", this.render);
 		this.listenTo(this.model.friendships(), "add", this.addUserFriend);
+		
+		this.listenTo(this.model.comments(), "sync", this.render);
+		this.listenTo(this.model.comments(), "add", this.addUserComment);
 		
 		this.model.user_food_items().each(this.addUserFood.bind(this));
 		this.model.friendships().each(this.addUserFriend.bind(this));
+		this.model.comments().each(this.addUserComment.bind(this));
 		//this.addUserReports()
 	},
 	
 	events: {
-		"click a[data-toggle='tab']":"switchTabs",
-		"click .add-food":"foodSearchPage",
-		"click .submit-comment":"caloriesSum"
+		"click a[data-toggle='tab']": "switchTabs",
+		"click .add-food": "foodSearchPage",
+		"click .submit-comment": "addComment"
 	},
 	
 	addUserFood: function(food_item) {
@@ -29,6 +35,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		
 		this.addSubview(".food-diary-body", userFoodView);
 		userFoodView.render()
+		//this.render()
 	},
 	
 	addUserFriend: function(friendship) {
@@ -39,6 +46,16 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		
 		this.addSubview(".friends-body", friendShowView)
 		friendShowView.render()
+	},
+	
+	addUserComment: function(comment) {
+		var commentShowView = new EatFriends.Views.CommentShow({
+			user: this.model,
+			model: comment
+		})
+		
+		this.addSubview(".news-feed-comments", commentShowView)
+		commentShowView.render()
 	},
 	
 	removeUserFood: function(food_item) {
@@ -76,6 +93,19 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		event.preventDefault();
 		Backbone.history.navigate("#/food_items/index")
 	},
+	
+	addComment: function(event) {
+		event.preventDefault();
+		var commentBody = $(".comment-text-field").val()
+		var newComment = new EatFriends.Models.Comment({
+			body: commentBody,
+			author_id: currentUserID,
+			commentable_id: this.model.id,
+			commentable_type: "User"
+		})
+		newComment.save();
+		this.model.comments().add(newComment)
+	}
 	
 	// addUserReports: function() {
 // 		//var pieData = [carbs, fat, protein]

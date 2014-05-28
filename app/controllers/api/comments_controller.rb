@@ -1,5 +1,10 @@
 class Api::CommentsController < Api::ApiController
   
+  def index
+    @comments = Comment.all
+    render json: @comments
+  end
+  
   def create
     @comment = Comment.new(comment_params)
     @comment.author_id = current_user.id
@@ -10,6 +15,7 @@ class Api::CommentsController < Api::ApiController
       flash.now[:errors] = @comment.errors.full_messages
       render :new, status: 422
     end
+  end
   
   def destroy
   end

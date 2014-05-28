@@ -5,8 +5,12 @@ window.EatFriends = {
   Routers: {},
   initialize: function() {
 		
-		function capitalize(string) {
+		var capitalize = window.capitalize = function(string) {
 			return string.chartAt(0).toUpperCase() + string.slice(1);
+		}
+		
+		var currentUser = window.currentUser = function() {
+			return EatFriends.Collections.users.get(currentUserID);
 		}
 		
 		EatFriends.Collections.users = new EatFriends.Collections.Users();

@@ -12,11 +12,23 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 			delete payload.friendships;
 		}
 		
+		if (payload.comments){
+			this.comments().set(payload.comments, { parse: true});
+			delete payload.comments;
+		}
+		
 		return payload;
 	},
 	
 	gravatar: function() {
 		return "https://secure.gravatar.com/avatar/" + this.get('email_hash')
+	},
+	
+	comments: function () {
+		this._comments = this._comments || 
+		new EatFriends.Collections.Comments([], { user: this });
+		
+		return this._comments;
 	},
 	
 	user_food_items: function () {
@@ -42,9 +54,6 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 			}
 		})
 		return friend;
-		// return this.friendships().some( function(friendship) {
-		// 	friendship.get('friend_id') == user.id
-		// });
 	},
 	
 	friends: function() {

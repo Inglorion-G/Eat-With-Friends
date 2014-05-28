@@ -26,12 +26,24 @@
          type="password">
       </div>
 
-      <button type="submit" class="btn btn-primary">Log In</button>
+      <button type="submit" class="btn btn-primary login">Log In</button>
 			<br>
     </form>
 		<br>
 		<div>
-			<button type="button" class="btn btn-lg btn-success">Guest User</button>
+			<button 
+			  type="button" 
+				class="btn btn-lg btn-success guest-login">
+				  Guest User
+			</button>
+			
+			<script>
+			$(".guest-login").click( function () {
+				$("#user_username").val("Guest");
+				$("#user_password").val("password");
+				$(".login").trigger("click");
+			});
+			</script>
 		</div>
 	</div>
 </div>

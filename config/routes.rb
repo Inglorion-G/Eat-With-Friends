@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :food_items, only: [:create, :search_food, :index, :show]
     resources :friendships, only: [:create, :destroy]
     resources :leaderboards, only: [:index]
+    resources :comments, only: [:index, :create, :destroy]
   end
   
   resources :users, only: [:new, :create]

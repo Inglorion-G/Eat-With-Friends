@@ -24,6 +24,7 @@ window.EatFriends.Views.FoodItemShow = Backbone.CompositeView.extend({
 		var newUserFoodItem = new EatFriends.Models.UserFoodItem({
 			food_item_id: this.model.id
 		})
+		//currentUser().user_food_items().add(newUserFoodItem)
 		newUserFoodItem.save();
 		this.render();
 	}
