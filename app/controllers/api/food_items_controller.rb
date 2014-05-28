@@ -18,7 +18,7 @@ class Api::FoodItemsController < Api::ApiController
     @food_item = FoodItem.new(food_params)
     
     if @food_item.save
-      redirect_to :back
+      render json: @food_item
     else
       flash.now[:errors] = @food_item.errors.full_messages
       render :new, status: 422

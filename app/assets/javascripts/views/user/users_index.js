@@ -33,13 +33,14 @@ EatFriends.Views.UsersIndex = Backbone.CompositeView.extend({
 	
 	search: function() {
 		var string = $("#friend-search-term").val();
-		
 		var searchString = new RegExp("^.*" + string + ".*$", "i")
 		var searchCollection = this.collection.filter( function(model) {
 			return searchString.test(model.get('username'))
 		});
 		
 		this.friendSearchResults.set(searchCollection)
+		this.friendSearchResults.remove(currentUserID)
+		
 		this.handleFriendSearchResults()
 	}
 	

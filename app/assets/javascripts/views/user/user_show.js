@@ -78,7 +78,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	
 	render: function () {
 		// if (this.globalUsers.length === 0) {
-// 			return
+// 			return this.$el.html("")
 // 		}
 		var content = this.template({
 			user: this.model
@@ -96,7 +96,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	
 	foodSearchPage: function (event) {
 		event.preventDefault();
-		Backbone.history.navigate("#/food_items/index")
+		Backbone.history.navigate("#/food_items/index");
 	},
 	
 	addComment: function(event) {
