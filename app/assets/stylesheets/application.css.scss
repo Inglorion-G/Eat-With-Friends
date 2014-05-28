@@ -10,15 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
+/*@import "bootswatch/spacelab/variables";
 @import "bootstrap";
+@import "bootswatch/spacelab/bootswatch";*/
 @import url(http://fonts.googleapis.com/css?family=Gorditas);
-
-/*.inactive {
-	display: none;
-}*/
 
 .sign-up {
 	color:white;
@@ -50,6 +49,10 @@ ul {
 	color: #3eb24f;
 	letter-spacing: -1px;
 	size: 150%;
+}
+
+.white-text {
+	color: white;
 }
 
 .no-padding {
@@ -128,7 +131,7 @@ ul {
 
 .comment-text-field {
 	float: left;
-  width: 300px; 
+  width: 350px; 
   min-width:300px; 
   max-width:300px; 
 
