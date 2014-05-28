@@ -16,6 +16,7 @@ class Api::FoodItemsController < Api::ApiController
   
   def create
     @food_item = FoodItem.new(food_params)
+    @food_item.calories = @food_item.calories.to_i
     
     if @food_item.save
       render json: @food_item
