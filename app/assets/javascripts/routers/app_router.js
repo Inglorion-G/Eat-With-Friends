@@ -10,7 +10,7 @@ EatFriends.Routers.AppRouter = Backbone.Router.extend({
 	
 	dashboard: function (id) {
 		var user = EatFriends.Collections.users.getOrFetch(currentUserID);
-		//user.fetch();
+		user.fetch();
 		var userShowView = new EatFriends.Views.UserShow({
 			model: user
 		});

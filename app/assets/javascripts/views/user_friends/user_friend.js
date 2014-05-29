@@ -2,7 +2,7 @@ window.EatFriends.Views.UserFriendShow = Backbone.CompositeView.extend({
 	
 	initialize: function(options) {
 		this.user = options.user
-		this.listenTo(this.user.friendships(), "add sync", this.render)
+		//this.listenTo(this.user.friendships(), "add sync", this.render)
 	},
 	
 	events: {
@@ -18,7 +18,8 @@ window.EatFriends.Views.UserFriendShow = Backbone.CompositeView.extend({
 	
 	render: function () {
 		var content = this.template({
-			friendship: this.model
+			friendship: this.model,
+			gravatarLink: "https://secure.gravatar.com/avatar/" + this.model.get('email_hash')
 		});
 		
 		this.$el.html(content);

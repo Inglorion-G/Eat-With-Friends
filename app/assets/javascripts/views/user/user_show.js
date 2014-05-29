@@ -19,7 +19,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.comments(), "add", this.addUserComment);
 		
 		this.model.user_food_items().each(this.addUserFood.bind(this));
-		this.model.friendships().each(this.addUserFriend.bind(this));
+		//this.model.friendships().each(this.addUserFriend.bind(this));
 		this.model.comments().each(this.addUserComment.bind(this));
 	},
 	
@@ -103,27 +103,27 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		Backbone.history.navigate("#/food_items/index");
 	},
 	
-	addChart: function () {
-    var totalCarbs = user.totalCarbs()
-  	var totalFat = user.totalFat()
-  	var totalProtein = user.totalProtein()
- 		
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Nutrient', 'Grams'],
-        ['Carbohydrates', totalCarbs],
-        ['Protein', totalFat],
-        ['Fat', totalProtein],
-      ]);
- 
-      var options = {
-        title: 'My Daily Activities'
-      };
- 
-      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-      chart.draw(data, options);
-    }
-	},
+	// addChart: function () {
+//     var totalCarbs = user.totalCarbs()
+//   	var totalFat = user.totalFat()
+//   	var totalProtein = user.totalProtein()
+//  		
+//     function drawChart() {
+//       var data = google.visualization.arrayToDataTable([
+//         ['Nutrient', 'Grams'],
+//         ['Carbohydrates', totalCarbs],
+//         ['Protein', totalFat],
+//         ['Fat', totalProtein],
+//       ]);
+//  
+//       var options = {
+//         title: 'My Daily Activities'
+//       };
+//  
+//       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+//       chart.draw(data, options);
+//     }
+// 	},
 	
 	addComment: function(event) {
 		event.preventDefault();

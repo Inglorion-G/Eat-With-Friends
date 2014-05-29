@@ -163,9 +163,34 @@ ul {
 	margin: 15px 0 0 20px;
 }
 
+.user-food-item {
+	position: relative;
+}
+
+.user-food-item:hover .remove-food-button {
+	left: 0px;
+}
+
+.user-food-list {
+	min-height: 300px;
+	max-height: 700px;
+	overflow-y: hidden;
+}
+
+.food-diary-body {
+	max-height: 500px;
+	overflow-y: hidden;
+	overflow-y: scroll;
+}
+
 .remove-food-button {
-	position:relative;
-	top: -40px;
+	position: relative;
+	left: 200px;
+	margin-top: 16px;
+	margin-right: 5px;
+	-webkit-transition: left .4s ease-out;
+	-moz-transition: left .4s ease-out;
+	-o-transition: left .4s ease-out;
 }
 
 /* food search and results */

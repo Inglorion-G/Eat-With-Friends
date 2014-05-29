@@ -59,12 +59,12 @@ window.EatFriends.Views.ReportShow = Backbone.ChartView.extend({
 // 		        .attr("text-anchor", "middle")                  
 // 		        .text(function(d, i) { return data[i].label; });
 // 	}
-	
-	// render: function () {
+// 	
+// 	render: function () {
 // 		var content = this.draw();
 // 		
 // 		this.$el.html(content);
 // 		return this;
 // 	}
-	
+// 	
 });
