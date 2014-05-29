@@ -37,7 +37,6 @@ EatFriends.Views.FriendsIndex = Backbone.CompositeView.extend({
 			return searchString.test(model.get('username'))
 		})
 		searchCollection.remove(model.get(currentUserID));
-		debugger
 		this.friendSearchResults.set(searchCollection)
 		this.handleFriendSearchResults()
 	}

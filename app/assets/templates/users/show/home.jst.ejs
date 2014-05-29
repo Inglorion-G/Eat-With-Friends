@@ -7,14 +7,21 @@
 			<div class="profile-picture" style="width:120px;height:120px;float:left">
 				<img height=120 width=120 src="<%= user.gravatar() %>">
 			</div>	
+			
+		  <% if (user.get('id') === currentUserID) { %>
+				<div class="btn btn-default btn-lg add-food pull-right">
+					Add Food
+				</div>
+			<% } %>
+			
 			<div class="total-calories">
 				<%= user.caloriesSum() %>
 			</div>
-			  <% if (user.get('id') === currentUserID) { %>
-					<div class="btn btn-default btn-lg add-food pull-right">
-						Add Food
-					</div>
-				<% } %>	
+			
+			<div id="delicious-calories">
+				DELICIOUS CALORIES CONSUMED
+			</div>
+			
 			<div id="calories-progress" class="progress progress-striped active">
 			  <div class="progress-bar" style="width: <%= (user.caloriesSum() / 3000) * 100 %>%">
 			  </div>
@@ -23,23 +30,41 @@
 		</div>	
 	</div>
 
-	<div class="col-xs-6 news-feed-column no-padding">
-		<div class="panel panel-primary news-feed">
+	<div class="col-xs-6 news-feed-column no-padding">	
+		<div class="panel panel-primary news-feed">	
+			
 			<div class="panel-heading">News Feed
-			</div>
-			<div class="panel-body news-feed-body">
+			</div>		
+			<div class="panel-body news-feed-header">
+				
 				<div class="news-feed-form">
+					<div class="input-group submit-comment pull-right">
+					  <input type="submit" class="button btn-sm btn-success form-control pull-right">
+					</div>
 					<div class="input-group comment-body">
 					  <textarea class="form-control comment-text-field">Share something!</textarea>
-					</div>
-					<div class="input-group submit-comment pull-right">
-					  <input type="submit" class="button btn-md btn-success form-control pull-right">
-					</div>
+					</div>		
 				</div>
+			</div>
+			
+			<div class="news-feed-body">
 				<div class="news-feed-comments">
+	      </div>	
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class="col-xs-6 news-feed-column no-padding">
+		<div class="panel panel-primary daily-report">
+			<div class="panel-heading">Daily Report
+			</div>
+			<div class="panel-body daily-report-body">
+				<div class="daily-report-graphs">
+					<div id="piechart" style="width: 400px; height: 500px;"></div>
 				</div>	
 			</div>
 		</div>
 	</div>
-
+	
 </div>

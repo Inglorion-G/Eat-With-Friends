@@ -1,3 +1,3 @@
 json.array! @friends do |friend|
-  json.extract! friend, :id, :username, :daily_calories, :weekly_calories
+  json.extract! friend, :id, :username, :daily_calories, :weekly_calories, :email_hash
 end

@@ -1,9 +1,15 @@
 <div class="well well-sm user-friend-show">
-	<div class="user-profile-img">
-	  <img src= "<%= friendship.friend().gravatar() %>">
-	</div>
-	<p><%= friendship.friend().escape('username') %></p>
+	
 	<span class="view-profile">
-		<a href="#/users/<%= friendship.escape('friend_id') %>"><button type="button" class="btn btn-info btn-lg pull-right view-profile-button">View Profile</button></a>
+		<a href="#/users/<%= friendship.escape('friend_id') %>">
+			<button type="button" class="btn btn-info btn-lg pull-right view-profile-button">View Profile</button>
+		</a>
 	</span>
+	<div class="friend-info">
+		<div class="user-profile-img">
+		  <img src= "<%= friendship.friend().gravatar() %>">
+		</div>
+		<p><%= friendship.friend().escape('username') %></p>
+	</div>
+	
 </div>

@@ -68,9 +68,7 @@ ul {
 }
 
 .view-profile-button {
-	position: relative;
-	top: -80px;
-	left: -10px;
+	margin-top: 30px;
 }
 
 .add-food-button {
@@ -109,10 +107,33 @@ ul {
 	overflow-y: hidden;
 }
 
+.daily-report {
+	margin-left:5px;
+	min-height: 500px;
+	max-height: 500px;
+	overflow-y: hidden;
+}
+
+.news-feed-header {
+	margin: 0px 0px 40px 0px;
+	height: 90px;
+	border-style: solid;
+	border: 3px gray;
+}
+
 .news-feed-comments {
+	margin: 0;
+	background: #F5F5F5;
+	padding: 10px;
 	max-height: 400px;
+	width: 100%;
 	overflow-y: hidden;
 	overflow-y: scroll;
+}
+
+.comment {
+	background: white;
+	color: black;
 }
 
 .news-feed-form {
@@ -124,26 +145,32 @@ ul {
 }
 
 .submit-comment {
-	float: left;
+/*	float: left;
 	position: relative;
-	top: -55px;
+	top: -55px;*/
 }
 
 .comment-text-field {
 	float: left;
-  width: 350px; 
-  min-width:300px; 
-  max-width:300px; 
+  min-width:380px; 
+  max-width:380px; 
 
   height:100px; 
   min-height:100px;  
   max-height:100px;
 }
 
+.profile-picture {
+	margin-right: 15px;
+}
+
 #calories-progress {
-	position: relative;
-	top: 90px;
-	left: -10px;
+	width: 65%;
+}
+
+#delicious-calories {
+	line-height: 2em;
+	color: #999;
 }
 
 .daily-summary-body {
@@ -157,16 +184,32 @@ ul {
 }
 
 .total-calories {
+	display: block;
 	font-weight: bold;
 	font-size: 45px;
 	line-height: 40px;
 	color: #3eb24f;
 	letter-spacing: -1px;
-	margin: 0 0 0 20px;
-	float: left;
+	margin: 15px 0 0 20px;
 }
 
 .slice text {
  font-size: 12pt;
  font-family: Arial;
-}   
+}
+
+.leader-info {
+	display: inline-block;
+}
+
+.leader-calories {
+	position: absolute;
+	right: 50%;
+	font-weight: bold;
+	font-size: 60px;
+	line-height: 40px;
+	color: #3eb24f;
+	letter-spacing: -1px;
+	margin-top: 50px;
+	display: inline-block;
+}
