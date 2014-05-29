@@ -207,6 +207,7 @@ ul {
 #food-search-panel {
 	padding: 10px;
 	margin: 10px;
+	overflow: hidden;
 }
 
 #food-search-term {
@@ -322,4 +323,11 @@ ul {
 	max-height: 800px;
 	overflow-y: hidden;
 	overflow-y: scroll;
+}
+
+/* Footer */
+
+.navbar-bottom {
+	margin-bottom: 0;
+	margin-top: 20px;
 }
