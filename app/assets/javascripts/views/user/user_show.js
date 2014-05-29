@@ -68,13 +68,6 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		
 		this.decrementUserCalories(userFoodView);
 		
-		// var removedFoodId = userFoodView.model.get('food_item_id');
-// 		var subtractCalories = 
-// 			EatFriends.Collections.food_items.get(removedFoodId).calories;
-// 		var currentCalories = parseInt($('.total-calories').text()) 
-		
-		// dynamically change value of calorie count
-		// $('.total-calories').html(currentCalories - subtractCalories)
 		this.removeSubview(".food-diary-body", userFoodView);
 	},
 	
@@ -108,6 +101,28 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	foodSearchPage: function (event) {
 		event.preventDefault();
 		Backbone.history.navigate("#/food_items/index");
+	},
+	
+	addChart: function () {
+    var totalCarbs = user.totalCarbs()
+  	var totalFat = user.totalFat()
+  	var totalProtein = user.totalProtein()
+ 		
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Nutrient', 'Grams'],
+        ['Carbohydrates', totalCarbs],
+        ['Protein', totalFat],
+        ['Fat', totalProtein],
+      ]);
+ 
+      var options = {
+        title: 'My Daily Activities'
+      };
+ 
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
 	},
 	
 	addComment: function(event) {

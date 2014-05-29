@@ -4,7 +4,7 @@ window.EatFriends = {
   Views: {},
   Routers: {},
   initialize: function() {
-		
+		// google.load("visualization", "1", {packages:["corechart"]});
 		var capitalize = window.capitalize = function(string) {
 			return string.chartAt(0).toUpperCase() + string.slice(1);
 		}

@@ -131,6 +131,10 @@ ul {
 	overflow-y: scroll;
 }
 
+.comment-body {
+	float: left;
+}
+
 .comment {
 	background: white;
 	color: black;
@@ -151,11 +155,9 @@ ul {
 }
 
 .comment-text-field {
-	float: left;
-  min-width:380px; 
-  max-width:380px; 
+  min-width:280px; 
+  max-width:280px; 
 
-  height:100px; 
   min-height:100px;  
   max-height:100px;
 }
