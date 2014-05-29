@@ -1,7 +1,6 @@
 class AddNutritionToFoodItems < ActiveRecord::Migration
   def change
     change_table :food_items do |t|
-      t.integer :search_term_id
       t.string :item_description
       t.string :ingredient_statement
       t.float :saturated_fat

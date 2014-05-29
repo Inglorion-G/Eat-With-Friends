@@ -8,6 +8,7 @@ window.EatFriends.Views.FoodItemShow = Backbone.CompositeView.extend({
 	
 	events: {
 		"click .add-food-button": "addFoodItem",
+		"click .modal-add-food-button": "addFoodItem",
 		"click .food-item": "info"
 	},
 	

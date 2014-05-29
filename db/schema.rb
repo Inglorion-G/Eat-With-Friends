@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527221850) do
+ActiveRecord::Schema.define(version: 20140529214043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,20 @@ ActiveRecord::Schema.define(version: 20140527221850) do
     t.float    "total_fat"
     t.float    "total_carbs"
     t.float    "total_protein"
+    t.string   "item_description"
+    t.string   "ingredient_statement"
+    t.float    "saturated_fat"
+    t.float    "cholesterol"
+    t.float    "sodium"
+    t.float    "dietary_fiber"
+    t.float    "vitamin_a"
+    t.float    "vitamin_c"
+    t.float    "calcium"
+    t.float    "iron"
+    t.float    "servings_per_container"
+    t.float    "serving_size_qty"
+    t.string   "serving_size_unit"
+    t.float    "serving_weight_grams"
   end
 
   add_index "food_items", ["nx_id"], name: "index_food_items_on_nx_id", unique: true, using: :btree
