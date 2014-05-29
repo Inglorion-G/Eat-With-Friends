@@ -19,6 +19,8 @@
 @import "bootswatch/spacelab/bootswatch";*/
 @import url(http://fonts.googleapis.com/css?family=Gorditas);
 
+/* authentication pages and application layout */
+
 .sign-up {
 	color:white;
 	background: image_url('background-fries.jpg') no-repeat center center fixed;
@@ -51,6 +53,8 @@ ul {
 	size: 150%;
 }
 
+/* utility classes */
+
 .white-text {
 	color: white;
 }
@@ -59,46 +63,10 @@ ul {
 	padding: 0px;
 }
 
+/* dashboard and user show */
+
 .status-column {
 	padding: 10px;
-}
-
-.add-food {
-  float: left;
-}
-
-.view-profile-button {
-	margin-top: 30px;
-}
-
-.add-food-button {
-	position:relative;
-	top: -40px;
-}
-
-.friend-result {
-	padding: 10px;
-	margin: 10px;
-}
-
-.add-friend-button {
-	position:relative;
-	top: -30px;
-}
-
-.already-friends-with {
-	position:relative;
-	top: -30px;
-}
-
-.remove-food-button {
-	position:relative;
-	top: -40px;
-}
-
-#food-search-panel {
-	padding: 10px;
-	margin: 10px;
 }
 
 .news-feed {
@@ -195,23 +163,138 @@ ul {
 	margin: 15px 0 0 20px;
 }
 
+.remove-food-button {
+	position:relative;
+	top: -40px;
+}
+
+/* food search and results */
+
+.food-item {
+	position: relative;
+	height: 80px;
+}
+
+.food-item:hover .add-food-button {
+	left: 0px;
+}
+
+#food-search-panel {
+	padding: 10px;
+	margin: 10px;
+}
+
+#food-search-term {
+	width: 30%;
+}
+
+.add-food-item {
+}
+
+.food-item-info {
+	float: left;
+}
+
+.food-item-name {
+	color: #446e9b;
+}
+
+.search-foods-panel {
+	min-height: 300px;
+	max-height: 700px;
+	overflow-y: hidden;
+}
+
+.food-search-results {
+	max-height: 500px;
+	overflow-y: hidden;
+	overflow-y: scroll;
+}
+
+.add-food {
+  float: left;
+}
+
+.add-food-button {
+	position: relative;
+	left: 200px;
+	margin-top: 16px;
+	margin-right: 5px;
+	-webkit-transition: left .4s ease-out;
+	-moz-transition: left .4s ease-out;
+	-o-transition: left .4s ease-out;
+}
+
+/* friend search and results */
+
+#friend-search-term {
+	width: 30%;
+}
+
+.search-friends-panel {
+	min-height: 300px;
+	max-height: 700px;
+	overflow-y: hidden;
+}
+
+.friend-search-results {
+	max-height: 500px;
+	overflow-y: hidden;
+	overflow-y: scroll;
+}
+
+.view-profile-button {
+	margin-top: 30px;
+}
+
+.friend-result {
+	padding: 10px;
+	margin: 10px;
+}
+
+.add-friend-button {
+	position:relative;
+	top: -30px;
+}
+
+.already-friends-with {
+	position:relative;
+	top: -30px;
+}
+
+/* graphs and reports */
+
 .slice text {
  font-size: 12pt;
  font-family: Arial;
 }
 
+
+/* leaderboards */
+
 .leader-info {
 	display: inline-block;
+	float: left;
 }
 
 .leader-calories {
-	position: absolute;
-	right: 50%;
+	display: inline-block;
 	font-weight: bold;
 	font-size: 60px;
 	line-height: 40px;
 	color: #3eb24f;
 	letter-spacing: -1px;
 	margin-top: 50px;
-	display: inline-block;
+	margin-left: 200px;
+}
+
+.daily-leader-show {
+	height: 200px;
+	padding: 15px;
+}
+
+.leaderboard-panel-body {
+	max-height: 800px;
+	overflow-y: hidden;
+	overflow-y: scroll;
 }

@@ -1,5 +1,9 @@
 <div class="well well-sm daily-leader-show">
 	
+	<span class="view-profile">
+		<a href="#/users/<%= leader.escape('id') %>"><button type="button" class="btn btn-info btn-lg pull-right view-profile-button">View Profile</button></a>
+	</span>
+	
 	<div class="leader-info">
 		<div class="leader-name">
 			<h3><%= leader.escape('username') %></h3>
@@ -13,8 +17,4 @@
 	<div class="leader-calories">
 		<%= leader.escape('daily_calories') %>
 	</div>
-	
-	<span class="view-profile">
-		<a href="#/users/<%= leader.escape('id') %>"><button type="button" class="btn btn-info btn-lg pull-right view-profile-button">View Profile</button></a>
-	</span>
 </div>

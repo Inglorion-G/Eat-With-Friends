@@ -1,7 +1,7 @@
 <div class="well well-sm food-item">
-	<p>Name: <%= food_item.item_name %></p>
-	<p>Calories: <%= food_item.calories %></p>
-	<span class="add-food-item">
 		<button type="button" class="btn btn-success btn-sm pull-right add-food-button">Add Food</button>
-	</span>
+	<div class="food-item-info">
+		<h4 class="food-item-name"><%= food_item.item_name %></h4>
+		<p class="food-item-calories">Calories: <%= food_item.calories %></p>
+  </div>
 </div>
