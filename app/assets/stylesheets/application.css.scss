@@ -188,6 +188,13 @@ ul {
 
 .user-food-item {
 	position: relative;
+	transition-property: background;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+}
+
+.user-food-item:hover {
+	background: #c4c4c4;
 }
 
 .user-food-item:hover .remove-food-button {
@@ -221,6 +228,13 @@ ul {
 .food-item {
 	position: relative;
 	height: 80px;
+	transition-property: background;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+}
+
+.food-item:hover {
+	background: #c4c4c4;
 }
 
 .food-item:hover .add-food-button {

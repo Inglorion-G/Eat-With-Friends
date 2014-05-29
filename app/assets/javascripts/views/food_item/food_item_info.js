@@ -1,14 +1,13 @@
-window.EatFriends.Views.FoodItemShow = Backbone.CompositeView.extend({
+EatFriends.Views.FoodItemInfo = Backbone.View.extend({
 	
 	initialize: function() {
 		this.listenTo(EatFriends.Collections.food_items, "add", this.render)
 	},
 	
-	template: JST["food_items/show"],
+	template: JST["food_items/info"],
 	
 	events: {
-		"click .add-food-button": "addFoodItem",
-		"click .food-item": "info"
+		"click .add-food-button":"addFoodItem"
 	},
 	
 	render: function () {
@@ -18,10 +17,6 @@ window.EatFriends.Views.FoodItemShow = Backbone.CompositeView.extend({
 		
 		this.$el.html(content);
 		return this;
-	},
-	
-	info: function (event) {
-		$("#" + this.model.id + "-nutrition-info").modal('toggle');
 	},
 	
 	addFoodItem: function(event) {
@@ -37,4 +32,4 @@ window.EatFriends.Views.FoodItemShow = Backbone.CompositeView.extend({
 		this.render();
 	}
 	
-});
+})

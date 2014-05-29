@@ -15,7 +15,7 @@ class NXSession
       path: "v1_1/search/#{URI::encode(food_item)}",
       query_values: {
         results: "0:20",
-        fields: "brand_name,item_name,item_id,nf_calories,nf_total_fat,nf_total_carbohydrate,nf_protein",
+        fields: "brand_name,item_name,item_id,nf_calories,nf_total_fat,nf_total_carbohydrate,nf_protein,item_description,nf_ingredient_statement,nf_saturated_fat,nf_cholesterol,nf_sodium,nf_dietary_fiber,nf_vitamin_a_dv,nf_vitamin_c_dv,nf_calcium_dv,nf_iron_dv,nf_servings_per_container,nf_serving_size_qty,nf_serving_size_unit,nf_serving_weight_grams",
         appId: nx_app_id,
         appKey: nx_app_key
       }
@@ -32,7 +32,21 @@ class NXSession
         :nx_id => data["item_id"],
         :total_fat => data["nf_total_fat"],
         :total_carbs => data["nf_total_carbohydrate"],
-        :total_protein => data["nf_protein"]
+        :total_protein => data["nf_protein"],
+        :item_description => data["item_description"],
+        :nf_ingredient_statement => data["nf_ingredient_statement"],
+        :nf_saturated_fat => data["nf_saturated_fat"],
+        :nf_cholesterol => data["nf_cholesterol"],
+        :nf_sodium => data["nf_sodium"],
+        :nf_dietary_fiber => data["nf_dietary_fiber"],
+        :nf_vitamin_a_dv => data["nf_vitamin_a_dv"],
+        :nf_vitamin_c_dv => data["nf_vitamin_c_dv"],
+        :nf_calcium_dv => data["nf_calcium_dv"],
+        :nf_iron_dv => data["nf_iron_dv"],
+        :nf_servings_per_container => data["nf_servings_per_container"],
+        :nf_serving_size_qty => data["nf_serving_size_qty"],
+        :nf_serving_size_unit => data["nf_serving_size_unit"],
+        :nf_serving_weight_grams => data["nf_serving_weight_grams"]
       }
     end
   end
