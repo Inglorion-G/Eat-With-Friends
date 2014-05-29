@@ -55,6 +55,18 @@ ul {
 
 /* utility classes */
 
+.dark-green-text {
+	color: #006400;
+}
+
+.dark-blue-text {
+	color: #000080;
+}
+
+.gold-text {
+	color: #FFD700;
+}
+
 .white-text {
 	color: white;
 }
@@ -64,6 +76,12 @@ ul {
 }
 
 /* dashboard and user show */
+
+.header-icon {
+	float: left;
+	margin-top: 8px;
+	margin-right: 20px;
+}
 
 .status-column {
 	padding: 10px;
@@ -83,10 +101,11 @@ ul {
 }
 
 .news-feed-header {
-	margin: 0px 0px 40px 0px;
-	height: 90px;
+	margin: 0px 0px 0px 0px;
+	height: 130px;
 	border-style: solid;
 	border: 3px gray;
+	background: #F5F5F5;
 }
 
 .news-feed-comments {
@@ -145,6 +164,10 @@ ul {
 
 .daily-summary-body {
 	padding: 10px;
+}
+
+.daily-report-body {
+	background: #F5F5F5;
 }
 
 .pie-chart {

@@ -19,7 +19,7 @@ window.EatFriends.Views.UserFriendShow = Backbone.CompositeView.extend({
 	render: function () {
 		var content = this.template({
 			friendship: this.model,
-			gravatarLink: "https://secure.gravatar.com/avatar/" + this.model.get('email_hash')
+			//gravatarLink: "https://secure.gravatar.com/avatar/" + this.model.get('email_hash')
 		});
 		
 		this.$el.html(content);

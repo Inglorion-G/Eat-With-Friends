@@ -8,7 +8,7 @@ end
 
 json.friendships user.friendships do |friendship|
   json.(friendship, :user_id, :friend_id)
-  json.friend friendship.friend
+  json.friend friendship.friend, :id, :username, :email, :created_at, :updated_at, :email_hash
 end
 
 json.comments user.comments do |comment|
