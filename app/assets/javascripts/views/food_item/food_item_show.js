@@ -8,7 +8,6 @@ window.EatFriends.Views.FoodItemShow = Backbone.CompositeView.extend({
 	
 	events: {
 		"click .add-food-button": "addFoodItem",
-		"click .modal-add-food-button": "addFoodItem",
 		"click .food-item": "info"
 	},
 	
@@ -22,11 +21,16 @@ window.EatFriends.Views.FoodItemShow = Backbone.CompositeView.extend({
 	},
 	
 	info: function (event) {
+		if ($(event.target).hasClass("add-food-button")) {
+			return;
+		}
 		$("#" + this.model.id + "-nutrition-info").modal('toggle');
 	},
 	
 	addFoodItem: function(event) {
 		event.preventDefault();
+	  // $(event.target.parentElement).addClass("success");
+		
 		var newUserFoodItem = new EatFriends.Models.UserFoodItem({
 			food_item_id: this.model.id
 		})

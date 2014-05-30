@@ -5,9 +5,10 @@ window.EatFriends.Views.ReportShow = Backbone.View.extend({
 	template: JST["users/show/chart"],
 		
 	draw: function () {
+		
 		var w = 300,                       
 		h = 300,                           
-		r = 100,                            
+		r = 125,                            
 		color = d3.scale.ordinal().range(["#2F7689", "#FF4444", 
 						"#99CC00"]);   
 
@@ -27,7 +28,7 @@ window.EatFriends.Views.ReportShow = Backbone.View.extend({
 		    .outerRadius(r);
 				
 		var arcOver = d3.svg.arc()
-		    .outerRadius(r + 15);
+		    .outerRadius(r + 20);
 
 		var pie = d3.layout.pie()        
 		    .value(function(d) { return d.value; }); 

@@ -55,6 +55,35 @@ ul {
 
 /* utility classes */
 
+.success {
+	background: green;
+	/*-webkit-animation-name: success;
+	-webkit-animation-duration: 900ms;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-in-out;*/
+}    
+
+.bold-red {
+	font-family: 'Gorditas', cursive;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 150%;
+	color: maroon;
+	letter-spacing: -1px;
+	size: 200%;
+}
+
+.large-p {
+	font-size: 200%;
+}
+
+.gray-circle {
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	color: darkgray;
+}
+
 .dark-green-text {
 	color: #006400;
 }
@@ -113,6 +142,7 @@ ul {
 	margin: 0;
 	background: #F5F5F5;
 	padding: 10px;
+	min-height: 100px;
 	max-height: 400px;
 	width: 100%;
 	overflow-y: hidden;
@@ -222,6 +252,14 @@ ul {
 	-webkit-transition: left .4s ease-out;
 	-moz-transition: left .4s ease-out;
 	-o-transition: left .4s ease-out;
+}
+
+/* exercise */
+
+.sandwich {
+	width: 100%;
+	border-radius: 25%;
+	margin-bottom: 20px;
 }
 
 /* food search and results */
