@@ -4,8 +4,8 @@ Eat With Friends is a competetive calorie counter. Add friends, log foods, and s
 
 This project is a clone of MyFitnessPal, made for demonstration purposes.
 
-3rd Party API
-===
+API
+---
 
 [Nutritionix](http://www.nutritionix.com/api)
 
