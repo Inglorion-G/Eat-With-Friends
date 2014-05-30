@@ -1,5 +1,7 @@
 window.EatFriends.Views.ReportShow = Backbone.View.extend({
 	
+	tagName: "food-chart-div",
+	
 	template: JST["users/show/chart"],
 		
 	draw: function () {
@@ -9,9 +11,9 @@ window.EatFriends.Views.ReportShow = Backbone.View.extend({
 		color = d3.scale.ordinal().range(["#2F7689", "#FF4444", 
 						"#99CC00"]);   
 
-		data = [{"label":"Protein", "value": 5}, 
-		        {"label":"Fat", "value": 5}, 
-		        {"label":"Carbs", "value": 5}];
+		data = [{"label":"Protein", "value": this.model.totalProtein()}, 
+		        {"label":"Fat", "value": this.model.totalFat()}, 
+		        {"label":"Carbs", "value": this.model.totalCarbs()}];
 
 		var vis = d3.select("#food-chart")
 		    .append("svg:svg")              

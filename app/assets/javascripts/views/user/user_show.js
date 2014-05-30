@@ -83,8 +83,6 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		$('.progress-bar').attr("style", "width: " + currentProgress + "%")
 	},
 	
-	
-	
 	render: function () {
 		var content = this.template({
 			user: this.model
@@ -92,6 +90,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		
 		this.$el.html(content);
 		this.attachSubviews();
+		
 		var chartView = new EatFriends.Views.ReportShow({model: this.model});
 		chartView.render();
 		$(this.$el.find('#piechart')).append(chartView.$el);
@@ -108,28 +107,6 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		event.preventDefault();
 		Backbone.history.navigate("#/food_items/index");
 	},
-	
-	// addChart: function () {
-//     var totalCarbs = user.totalCarbs()
-//   	var totalFat = user.totalFat()
-//   	var totalProtein = user.totalProtein()
-//  		
-//     function drawChart() {
-//       var data = google.visualization.arrayToDataTable([
-//         ['Nutrient', 'Grams'],
-//         ['Carbohydrates', totalCarbs],
-//         ['Protein', totalFat],
-//         ['Fat', totalProtein],
-//       ]);
-//  
-//       var options = {
-//         title: 'My Daily Activities'
-//       };
-//  
-//       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-//       chart.draw(data, options);
-//     }
-// 	},
 	
 	addComment: function(event) {
 		event.preventDefault();
