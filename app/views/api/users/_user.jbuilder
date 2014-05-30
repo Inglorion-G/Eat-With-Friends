@@ -7,7 +7,7 @@ json.user_food_items user.daily_user_food_items do |user_food_item|
 end
 
 json.friendships user.friendships do |friendship|
-  json.(friendship, :user_id, :friend_id)
+  json.(friendship, :user_id, :friend_id, :id)
   json.friend friendship.friend, :id, :username, :email, :created_at, :updated_at, :email_hash
 end
 

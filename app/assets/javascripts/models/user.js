@@ -47,10 +47,10 @@ window.EatFriends.Models.User = Backbone.Model.extend({
 	
 	alreadyFriend: function (user) {
 		//should return true is this is already friends with user
-		var friend = false;
+		var friend = undefined;
 		this.friendships().each(function(friendship){
 			if(parseInt(friendship.get('friend_id')) == user.id){
-				friend = true;
+				friend = friendship;
 			}
 		})
 		return friend;

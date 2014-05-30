@@ -19,7 +19,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.comments(), "add", this.addUserComment);
 		
 		this.model.user_food_items().each(this.addUserFood.bind(this));
-		//this.model.friendships().each(this.addUserFriend.bind(this));
+		this.model.friendships().each(this.addUserFriend.bind(this));
 		this.model.comments().each(this.addUserComment.bind(this));
 	},
 	

@@ -2,14 +2,14 @@ EatFriends.Views.UsersIndex = Backbone.CompositeView.extend({
 	
 	initialize: function() {
 		this.originalCollection = this.collection;
-		this.listenTo(this.model, "sync", this.render);
+		this.listenTo(this.collection, "sync", this.render);
 		this.friendSearchResults = new EatFriends.Collections.Users();
 	},
 	
 	template: JST['users/friends/search'],
 	
 	events: {
-		"submit #search-friends": "handleFriendSearchResults",
+		// "submit #search-friends": "handleFriendSearchResults",
 		"keyup": "search"
 	},
 	
