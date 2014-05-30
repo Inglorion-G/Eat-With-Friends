@@ -37,6 +37,10 @@ window.EatFriends.Views.FoodItemShow = Backbone.CompositeView.extend({
 		newUserFoodItem.save( {}, {
 			success: function(response) {
 				currentUser().user_food_items().add(newUserFoodItem)
+				var message = new EatFriends.Views.NotificationView({
+					type: 'success', 
+					text: "Delicious food item eaten! \n Great success!"
+				})
 			}
 		});
 		this.render();

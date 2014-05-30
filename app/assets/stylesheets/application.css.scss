@@ -21,6 +21,10 @@
 
 /* authentication pages and application layout */
 
+body {
+	min-height: 100vh;
+}
+
 .sign-up {
 	color:white;
 	background: image_url('background-fries.jpg') no-repeat center center fixed;
@@ -55,12 +59,14 @@ ul {
 
 /* utility classes */
 
-.success {
-	background: green;
-	/*-webkit-animation-name: success;
-	-webkit-animation-duration: 900ms;
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-timing-function: ease-in-out;*/
+#message {
+	height: 100px;
+	width: 200px;
+}
+
+.accepted {
+	font-size: 20px;
+	color: darkgreen;
 }    
 
 .bold-red {
@@ -102,6 +108,12 @@ ul {
 
 .no-padding {
 	padding: 0px;
+}
+
+/* notifications */
+
+#message {
+	float: left;
 }
 
 /* dashboard and user show */
@@ -264,6 +276,10 @@ ul {
 
 /* food search and results */
 
+#search-foods {
+	float: left;
+}
+
 .food-item {
 	position: relative;
 	height: 80px;
@@ -287,6 +303,7 @@ ul {
 }
 
 #food-search-term {
+	min-width: 200px;
 	width: 30%;
 }
 
@@ -298,6 +315,10 @@ ul {
 }
 
 .food-item-name {
+	color: #446e9b;
+}
+
+.user-food-item-name {
 	color: #446e9b;
 }
 
@@ -444,7 +465,12 @@ ul {
 /* friend search and results */
 
 #friend-search-term {
+	min-width: 200px;
 	width: 30%;
+}
+
+#search-friends-by-name {
+	float: left;
 }
 
 .search-friends-panel {
@@ -457,6 +483,11 @@ ul {
 	max-height: 500px;
 	overflow-y: hidden;
 	overflow-y: scroll;
+}
+
+.view-leader-profile-button {
+	margin-top: 55px;
+	margin-right: 20px;
 }
 
 .view-profile-button {
@@ -525,6 +556,8 @@ ul {
 /* Footer */
 
 .navbar-bottom {
-	margin-bottom: 0;
-	margin-top: 20px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 0 !important;
 }
