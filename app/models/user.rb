@@ -62,6 +62,26 @@ class User < ActiveRecord::Base
     daily_cals
   end
   
+  def daily_nutrients
+    nutrients = ["sodium", "dietary_fiber", "saturated_fat", "cholesterol",
+      "vitamin_a", "vitamin_c", "calcium", "iron"]
+    daily_nutrients = Hash.new(0)
+    user_food_items = self.user_food_items
+      .where(created_at: (DateTime.now.at_beginning_of_day.utc..Time.now.utc))
+    
+    user_food_items.each do |user_food_item|
+      nutrients.each do |nutrient|
+        if user_food_item.food_item.try(nutrient) == nil
+          next
+        else
+          daily_nutrients[nutrient] += user_food_item.food_item.try(nutrient).floor
+        end
+      end
+    end
+    
+    daily_nutrients
+  end
+  
   def weekly_calories
     weekly_cals = 0
     user_food_items = self.user_food_items

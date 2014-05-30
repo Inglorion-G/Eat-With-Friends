@@ -6,6 +6,34 @@
 		</div>
 		
 		<div class="panel-body reports-body">
+				<div class="nutrient-table">
+					<table id="hor-minimalist-a">
+					<tr>
+						<th>Nutrient</th>
+						<th>Daily Intake</th>
+						<th>Recommended</th>
+						<th>Percentage</th>
+					</tr>
+					<tr>
+						<td>Total Protein</td>
+						<td><%= user.totalProtein() %>g</td>
+						<td>50g</td>
+						<td><%= Math.floor((user.totalProtein() / 50) * 100) %>%</td>
+					</tr>
+					<tr>
+						<td>Total Carbohydrates</td>
+						<td><%= user.totalCarbs() %></td>
+						<td>300g</td>
+						<td><%= Math.floor((user.totalCarbs() / 300) * 100) %>%</td>
+					</tr>
+					<tr>
+						<td>Total Fat</td>
+						<td><%= user.totalFat() %></td>
+						<td>65g</td>
+						<td><%= Math.floor((user.totalFat() / 65) * 100) %>%</td>
+					</tr>
+					</table>
+			</div>
 		</div>
 		
 	</div>

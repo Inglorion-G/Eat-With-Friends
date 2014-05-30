@@ -266,6 +266,7 @@ ul {
 	max-height: 500px;
 	overflow-y: hidden;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .remove-food-button {
@@ -517,6 +518,37 @@ ul {
 }
 
 /* graphs and reports */
+
+.nutrient-table {
+	margin-left: 10%;
+}
+
+#hor-minimalist-a {
+	font-size: 12px;
+	background: #fff;
+	margin: 45px;
+	width: 480px;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+#hor-minimalist-a th {
+	font-size: 15px;
+	font-weight: normal;
+	color: #446e9b;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+
+#hor-minimalist-a td {
+	color: #446e9b;
+	font-size: 12px;
+	padding: 9px 8px 0px 8px;
+}
+
+#hor-minimalist-a tbody tr:hover td {
+	color: red;
+}
 
 .slice text {
  font-size: 12pt;
