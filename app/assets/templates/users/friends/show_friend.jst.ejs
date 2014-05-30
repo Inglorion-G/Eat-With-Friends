@@ -1,6 +1,6 @@
 <div class="well well-sm friend-result">
-	<p>			<a href="#/users/<%= friend.escape('id') %>"><%= friend.escape('username') %></a></p>
-	<p>  </p>
+	<h4><a href="#/users/<%= friend.escape('id') %>"><%= friend.escape('username') %></a></h4>
+	<p></p>
 	<% if (alreadyFriend) { %>
 		<span class="already-friends-with pull-right">
 				<button type="button" class="btn btn-info btn-sm pull-right remove-friend">Already friends!</button>

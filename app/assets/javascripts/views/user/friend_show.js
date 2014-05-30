@@ -11,13 +11,6 @@ window.EatFriends.Views.FriendShow = Backbone.CompositeView.extend({
 		"click .add-friend-button":"addFriend",
 		"click .remove-friend":"removeFriend"
 	},
-	removeFriend: function(event){
-		event.preventDefault();
-		var friendship = currentUser().alreadyFriend(this.model);
-		if(friendship){
-			friendship.destroy();
-		}
-	},
 	
 	render: function () {
 		var content = this.template({
@@ -44,6 +37,21 @@ window.EatFriends.Views.FriendShow = Backbone.CompositeView.extend({
 				})
 			}
 		});
-	}
+	},
+	
+	removeFriend: function(event){
+		event.preventDefault();
+		var friendship = currentUser().alreadyFriend(this.model);
+		if(friendship){
+			friendship.destroy({
+				success: function (response) {
+					var message = new EatFriends.Views.NotificationView({
+						type: 'success',
+						text: "Removed friend. Every end is a new beginning.",
+					})
+				}
+			});
+		}
+	},
 	
 });

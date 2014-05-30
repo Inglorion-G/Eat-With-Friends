@@ -485,11 +485,6 @@ ul {
 	overflow-y: scroll;
 }
 
-.view-leader-profile-button {
-	margin-top: 55px;
-	margin-right: 20px;
-}
-
 .view-profile-button {
 	margin-top: 30px;
 }
@@ -535,11 +530,16 @@ ul {
 	display: inline-block;
 	font-weight: bold;
 	font-size: 60px;
-	line-height: 40px;
+	line-height: 53px;
 	color: #3eb24f;
 	letter-spacing: -1px;
-	margin-top: 50px;
-	margin-left: 200px;
+	margin-top: 55px;
+	margin-right: 300px;
+}
+
+.view-leader-profile-button {
+	margin-top: 55px;
+	margin-right: 20px;
 }
 
 .daily-leader-show {
