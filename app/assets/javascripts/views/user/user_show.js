@@ -83,6 +83,8 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		$('.progress-bar').attr("style", "width: " + currentProgress + "%")
 	},
 	
+	
+	
 	render: function () {
 		var content = this.template({
 			user: this.model
@@ -90,6 +92,10 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		
 		this.$el.html(content);
 		this.attachSubviews();
+		var chartView = new EatFriends.Views.ReportShow({model: this.model});
+		chartView.render();
+		$(this.$el.find('#piechart')).append(chartView.$el);
+		chartView.draw();
 		return this;
 	},
 	
