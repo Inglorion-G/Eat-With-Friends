@@ -1,21 +1,14 @@
 #Eat With Friends
 
+Eat With Friends is a competetive calorie counter. Add friends, log foods, and see who eats his or her way to victory in the standings.
 
+This project is a clone of MyFitnessPal, made for demonstration purposes.
 
-* Ruby version
+3rd Party API
+===
 
-* System dependencies
+[Nutritionix](http://www.nutritionix.com/api)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ruby version
+---
+1.9.3p448
