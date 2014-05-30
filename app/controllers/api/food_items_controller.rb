@@ -44,7 +44,26 @@ class Api::FoodItemsController < Api::ApiController
   private
   
   def food_params
-    params.require(:food_item).permit(:calories, :item_name, :nx_id)
+    params.require(:food_item).permit(
+      :calories,
+      :item_name,
+      :nx_id,
+      :total_fat,
+      :total_carbs,
+      :total_protein,
+      :saturated_fat,
+      :cholesterol,
+      :sodium,
+      :dietary_fiber,
+      :vitamin_a,
+      :vitamin_c,
+      :calcium,
+      :iron,
+      :servings_per_container,
+      :serving_size_qty,
+      :serving_size_unit,
+      :serving_weight_grams,
+    )
   end
   
 end
