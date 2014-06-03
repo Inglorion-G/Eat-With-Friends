@@ -6,15 +6,31 @@ window.EatFriends.Views.ReportShow = Backbone.View.extend({
 		
 	draw: function () {
 		
+		var totalProtein = this.model.totalProtein();
+		var totalFat = this.model.totalFat();
+		var totalCarbs = this.model.totalCarbs();
+		
+		if (totalProtein < .01) {
+			totalProtein = .01;
+		}
+		
+		if (totalFat < .01) {
+			totalFat = .01;
+		}
+		
+		if (totalCarbs < .01) {
+			totalCarbs = .01;
+		}
+		
 		var w = 300,                       
 		h = 300,                           
 		r = 125,                            
 		color = d3.scale.ordinal().range(["#2F7689", "#FF4444", 
 						"#99CC00"]);   
 
-		data = [{"label":"Protein", "value": this.model.totalProtein()}, 
-		        {"label":"Fat", "value": this.model.totalFat()}, 
-		        {"label":"Carbs", "value": this.model.totalCarbs()}];
+		data = [{"label":"Protein", "value": totalProtein }, 
+		        {"label":"Fat", "value": totalFat }, 
+		        {"label":"Carbs", "value": totalCarbs }];
 
 		var vis = d3.select("#food-chart")
 		    .append("svg:svg")              
