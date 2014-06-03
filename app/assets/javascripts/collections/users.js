@@ -7,7 +7,6 @@ window.EatFriends.Collections.Users = Backbone.Collection.extend({
 		var users = this;
 		
 		if (model = this.get(id)) {
-			// try this to see why it's tacking on extra views
 			// model.fetch();
 			return model;
 		} else {

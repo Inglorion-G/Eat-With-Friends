@@ -30,7 +30,6 @@ class Api::FoodItemsController < Api::ApiController
     search_term = params[:search_term]
     term = SearchTerm.find_by(:term => search_term)
     
-    # move all this to the model
     if term
       food_items_list = term.food_items
     else

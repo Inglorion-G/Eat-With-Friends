@@ -5,7 +5,6 @@ class Api::UsersController < Api::ApiController
   end
 
   def show
-    #@user = current_user
     @user = User.find(params[:id])
     render partial: "api/users/user", locals: { user: @user}
   end
