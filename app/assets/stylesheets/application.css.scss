@@ -296,6 +296,7 @@ ul {
 .food-item {
 	position: relative;
 	height: 80px;
+	overflow: auto;
 	transition-property: background;
 	transition-duration: 1s;
 	transition-timing-function: linear;
@@ -325,6 +326,7 @@ ul {
 
 .food-item-info {
 	float: left;
+	width: 85%;
 }
 
 .food-item-name {

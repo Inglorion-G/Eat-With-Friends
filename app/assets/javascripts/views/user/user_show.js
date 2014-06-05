@@ -10,6 +10,7 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		
 		this.listenTo(this.model.user_food_items(), "sync", this.render);
 		this.listenTo(this.model.user_food_items(), "add", this.addUserFood);
+		this.listenTo(this.model.user_food_items(), "add remove", this.updateChart);
 		this.listenTo(this.model.user_food_items(), "remove", this.removeUserFood);
 		
 		this.listenTo(this.model.friendships(), "sync", this.render);
@@ -96,6 +97,13 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		$(this.$el.find('#piechart')).append(chartView.$el);
 		chartView.draw();
 		return this;
+	},
+	
+	updateChart: function() {
+		var chartView = new EatFriends.Views.ReportShow({model: this.model});
+		chartView.render();
+		$(this.$el.find('#piechart')).html(chartView.$el);
+		chartView.draw();
 	},
 	
 	switchTabs: function(event) {
