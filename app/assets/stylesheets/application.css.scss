@@ -295,8 +295,7 @@ ul {
 
 .food-item {
 	position: relative;
-	height: 80px;
-	overflow: auto;
+	min-height: 80px;
 	transition-property: background;
 	transition-duration: 1s;
 	transition-timing-function: linear;
