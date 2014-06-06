@@ -27,7 +27,9 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 	events: {
 		"click a[data-toggle='tab']": "switchTabs",
 		"click .add-food": "foodSearchPage",
-		"click .submit-comment": "addComment"
+		"click .submit-comment": "addComment",
+		"mouseover .slice": "renderNutrientDetails",
+		"mouseleave .slice": "destroyNutrientDetails"
 	},
 	
 	addUserFood: function(food_item) {
@@ -104,6 +106,21 @@ window.EatFriends.Views.UserShow = Backbone.CompositeView.extend({
 		chartView.render();
 		$(this.$el.find('#piechart')).html(chartView.$el);
 		chartView.draw();
+	},
+	
+	renderNutrientDetails: function(event) {
+		var nutrientType = event.target.attributes[0].value;
+		if (nutrientType === "#99CC00") {
+			$(".nutrient-details").html(this.model.totalCarbs() + " g")
+		} else if (nutrientType === "#2F7689") {
+			$(".nutrient-details").html(this.model.totalProtein() + " g")
+		} else {
+			$(".nutrient-details").html(this.model.totalFat() + " g")
+		}
+	},
+	
+	destroyNutrientDetails: function(event) {
+		$(".nutrient-details").empty();
 	},
 	
 	switchTabs: function(event) {

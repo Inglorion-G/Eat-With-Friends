@@ -167,7 +167,7 @@ ul {
 	background: #F5F5F5;
 	padding: 10px;
 	min-height: 100px;
-	max-height: 400px;
+	max-height: 340px;
 	width: 100%;
 	overflow-y: hidden;
 	overflow-y: scroll;
@@ -231,6 +231,12 @@ ul {
 	left: 30px;
 }
 
+.nutrient-details {
+	position: relative;
+	top: 30px;
+	left: 50px;
+}
+
 .total-calories {
 	display: block;
 	font-weight: bold;
@@ -242,7 +248,11 @@ ul {
 }
 
 .user-food-item {
+	cursor: pointer;
+	cursor: hand;
 	position: relative;
+	min-height: 80px;
+	min-width: 300px;
 	transition-property: background;
 	transition-duration: 1s;
 	transition-timing-function: linear;
@@ -294,8 +304,11 @@ ul {
 }
 
 .food-item {
+	cursor: pointer;
+	cursor: hand;
 	position: relative;
 	min-height: 80px;
+	min-width: 300px;
 	transition-property: background;
 	transition-duration: 1s;
 	transition-timing-function: linear;
@@ -325,7 +338,8 @@ ul {
 
 .food-item-info {
 	float: left;
-	width: 85%;
+	max-width: 65%;
+	cursor: hand;
 }
 
 .food-item-name {
